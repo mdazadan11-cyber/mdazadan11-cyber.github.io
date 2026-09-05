@@ -1,158 +1,5 @@
-<html><head><style>
-@font-face {
-  font-family: "Optimistic";
-  font-style: normal;
-  font-weight: 400 600;
-  font-display: swap;
-  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Optimistic Mono";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
-}
-:where(html) {
-  font-family: "Optimistic", system-ui, sans-serif;
-}
-:where(code, pre, kbd, samp) {
-  font-family: "Optimistic Mono", ui-monospace, monospace;
-}
-</style><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>COPY COMPLETE WORKING</title>
-<style>body{background:#000;color:#fff;font-family:system-ui;padding:15px} .btn{width:100%;background:#ff6b00;color:#000;border:none;padding:20px;font-size:22px;font-weight:900;border-radius:14px;cursor:pointer} .ok{display:none;background:#0f0;color:#000;padding:12px;border-radius:10px;text-align:center;font-weight:900;margin:10px 0} textarea{width:100%;height:60vh;background:#111;color:#0f0;border:2px solid #ff6b00;padding:10px;font-family:monospace;font-size:11px} .note{background:#1a0f00;border:1px solid #ff6b00;padding:12px;border-radius:10px;margin-top:12px;color:#ffcc99;font-size:13px}</style>
-</head><body>
-<h2 style="color:#ff6b00;text-align:center">🔧 COMPLETE WORKING - खाली डब्बा नहीं!</h2>
-<div class="ok" id="ok">✅ COPY हो गया सर जी! अब working वाला है!</div>
-<button class="btn" onclick="copy()">📋 COPY करो - COMPLETE WORKING</button>
-<textarea id="t">&lt;html lang=&quot;hi&quot;&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-&lt;title&gt;AZ FINAL - COMPLETE WORKING 2025&lt;/title&gt;
-&lt;style&gt;
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,&#x27;Segoe UI&#x27;,Roboto,sans-serif;display:flex;justify-content:center;min-height:100vh}
-.app{width:100%;max-width:430px;background:#000;min-height:100vh;display:flex;flex-direction:column;border-left:1px solid #222;border-right:1px solid #222}
-.top{position:sticky;top:0;z-index:30;background:#000;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1a1a1a}
-.top-left{display:flex;gap:10px;align-items:center}
-.az-logo{width:44px;height:44px;background:#ff6b00;border-radius:14px;display:grid;place-items:center;font-weight:900;font-size:20px}
-.brand-title{font-weight:900;font-size:17px;display:flex;gap:6px;align-items:center}
-.live-pill{background:#ff6b00;color:#000;font-size:10px;font-weight:900;padding:2px 7px;border-radius:6px}
-.sub{font-size:11px;color:#777;display:flex;gap:4px;align-items:center;margin-top:2px}
-.green-dot{width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block}
-.search-wrap{padding:10px 12px}
-.search-box{background:#151515;border:1px solid #222;border-radius:999px;display:flex;gap:10px;align-items:center;padding:12px 14px}
-.search-box input{flex:1;background:transparent;border:none;outline:none;color:#fff;font-size:14px}
-.cats{padding:6px 8px 10px;display:flex;gap:12px;overflow-x:auto;scrollbar-width:none}
-.cats::-webkit-scrollbar{display:none}
-.cat{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:none;color:#fff}
-.cat-ring{width:64px;height:64px;border-radius:50%;padding:3px;background:linear-gradient(135deg,#ff6b00,#ffb700);display:grid;place-items:center}
-.cat-ring.dim{background:#222;padding:2px}
-.cat-inner{width:100%;height:100%;background:#111;border-radius:50%;display:grid;place-items:center;font-size:26px;position:relative}
-.cat-badge{position:absolute;top:-2px;right:-2px;background:#ff6b00;color:#000;font-size:11px;font-weight:900;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;border:2px solid #000}
-.cat-label{font-size:12px;color:#aaa}
-.post{margin-top:8px;background:#0a0a0a;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a}
-.post-head{padding:10px 12px;display:flex;justify-content:space-between;align-items:center}
-.post-user{display:flex;gap:10px;align-items:center}
-.avatar{width:38px;height:38px;border-radius:50%;background:#222;display:grid;place-items:center;font-size:18px}
-.post-name{font-weight:700;font-size:13px;display:flex;gap:6px;align-items:center}
-.verified{width:18px;height:18px;background:#ff6b00;border-radius:50%;display:grid;place-items:center;font-size:11px;color:#000;font-weight:900}
-.meta{font-size:11px;color:#777;margin-top:2px}
-.video-wrap{position:relative;background:#000;aspect-ratio:16/9;overflow:hidden;cursor:pointer}
-.video-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s}
-.video-wrap:hover img{transform:scale(1.05)}
-.chip{position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);padding:6px 12px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid rgba(255,255,255,0.1)}
-.live-chip{position:absolute;top:10px;right:10px;background:#ff6b00;color:#000;padding:6px 12px;border-radius:999px;font-size:11px;font-weight:900}
-.play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:rgba(255,107,0,0.9);border-radius:50%;display:grid;place-items:center;font-size:28px;color:#000;box-shadow:0 4px 20px rgba(0,0,0,0.5)}
-.bottom{position:sticky;bottom:0;background:#000;border-top:1px solid #1a1a1a;display:flex;justify-content:space-around;padding:6px 0 8px}
-.nav{flex:1;background:none;border:none;color:#555;display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px;font-size:11px}
-.nav.active{color:#ff6b00}
-.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#ff6b00;color:#000;padding:10px 16px;border-radius:999px;font-size:12px;font-weight:700;z-index:99;display:none;white-space:nowrap}
-.ai-box{margin:8px 12px;background:#151515;border:1px solid #ff6b0033;border-radius:14px;padding:10px 12px;display:flex;gap:10px;align-items:flex-start}
-.ai-icon{width:36px;height:36px;background:#ff6b00;border-radius:50%;display:grid;place-items:center;flex-shrink:0;font-size:18px}
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div class=&quot;app&quot;&gt;
-&lt;div class=&quot;top&quot;&gt;
-&lt;div class=&quot;top-left&quot;&gt;&lt;div class=&quot;az-logo&quot;&gt;AZ&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;brand-title&quot;&gt;AZ FINAL &lt;span class=&quot;live-pill&quot;&gt;COMPLETE 2025&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;sub&quot;&gt;&lt;span class=&quot;green-dot&quot;&gt;&lt;/span&gt;अस्सलाम वालेकुम - सब working&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div style=&quot;display:flex;gap:8px&quot;&gt;&lt;div style=&quot;width:32px;height:32px;background:#151515;border-radius:50%;display:grid;place-items:center&quot;&gt;🔔&lt;/div&gt;&lt;div style=&quot;width:32px;height:32px;background:#151515;border-radius:50%;display:grid;place-items:center&quot;&gt;💬&lt;/div&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;search-wrap&quot;&gt;&lt;div class=&quot;search-box&quot;&gt;🔍&lt;input id=&quot;search&quot; placeholder=&quot;Brake, Engine, Clutch खोजें...&quot; onkeypress=&quot;if(event.key===&#x27;Enter&#x27;)showToast(&#x27;Search: &#x27;+this.value)&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;cats&quot;&gt;
-&lt;button class=&quot;cat&quot; onclick=&quot;showToast(&#x27;Aap - 3 new messages&#x27;)&quot;&gt;&lt;div class=&quot;cat-ring dim&quot;&gt;&lt;div class=&quot;cat-inner&quot;&gt;💬&lt;span class=&quot;cat-badge&quot;&gt;3&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;span class=&quot;cat-label&quot;&gt;Aap&lt;/span&gt;&lt;/button&gt;
-&lt;button class=&quot;cat&quot; onclick=&quot;showToast(&#x27;Brake Videos - 12 videos&#x27;)&quot;&gt;&lt;div class=&quot;cat-ring&quot;&gt;&lt;div class=&quot;cat-inner&quot;&gt;🛞&lt;/div&gt;&lt;/div&gt;&lt;span class=&quot;cat-label&quot;&gt;Brake&lt;/span&gt;&lt;/button&gt;
-&lt;button class=&quot;cat&quot; onclick=&quot;showToast(&#x27;Engine Videos - 8 videos&#x27;)&quot;&gt;&lt;div class=&quot;cat-ring&quot;&gt;&lt;div class=&quot;cat-inner&quot;&gt;⚙️&lt;/div&gt;&lt;/div&gt;&lt;span class=&quot;cat-label&quot;&gt;Engine&lt;/span&gt;&lt;/button&gt;
-&lt;button class=&quot;cat&quot; onclick=&quot;showToast(&#x27;Clutch - 5 videos&#x27;)&quot;&gt;&lt;div class=&quot;cat-ring&quot;&gt;&lt;div class=&quot;cat-inner&quot;&gt;🔧&lt;/div&gt;&lt;/div&gt;&lt;span class=&quot;cat-label&quot;&gt;Clutch&lt;/span&gt;&lt;/button&gt;
-&lt;button class=&quot;cat&quot; onclick=&quot;showToast(&#x27;Namaz Times&#x27;)&quot;&gt;&lt;div class=&quot;cat-ring&quot;&gt;&lt;div class=&quot;cat-inner&quot;&gt;🕌&lt;/div&gt;&lt;/div&gt;&lt;span class=&quot;cat-label&quot;&gt;Namaz&lt;/span&gt;&lt;/button&gt;
-&lt;button class=&quot;cat&quot; onclick=&quot;showToast(&#x27;Settings - AI Ustad&#x27;)&quot;&gt;&lt;div class=&quot;cat-ring&quot;&gt;&lt;div class=&quot;cat-inner&quot;&gt;⚙️&lt;/div&gt;&lt;/div&gt;&lt;span class=&quot;cat-label&quot;&gt;Setting&lt;/span&gt;&lt;/button&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;ai-box&quot;&gt;&lt;div class=&quot;ai-icon&quot;&gt;🤖&lt;/div&gt;&lt;div style=&quot;font-size:12px;line-height:1.4&quot;&gt;अस्सलाम वालेकुम sir! अब सब working है! Zoom करो तो video दिखेगा, खाली डब्बा नहीं! Brake, Engine, Clutch - सब videos चलेंगे!&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;post&quot;&gt;
-&lt;div class=&quot;post-head&quot;&gt;&lt;div class=&quot;post-user&quot;&gt;&lt;div class=&quot;avatar&quot;&gt;👨🏽‍🔧&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;post-name&quot;&gt;Ustad Rafi &lt;span class=&quot;verified&quot;&gt;✓&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;meta&quot;&gt;Brake Repair • 12.4K views • आज&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;font-size:18px&quot;&gt;⋮&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;video-wrap&quot; onclick=&quot;showToast(&#x27;▶️ Brake Video Playing...&#x27;)&quot;&gt;
-&lt;img src=&quot;https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&amp;q=80&quot; alt=&quot;Brake&quot;&gt;
-&lt;div class=&quot;chip&quot;&gt;🔧 BRAKE WORKSHOP&lt;/div&gt;&lt;div class=&quot;live-chip&quot;&gt;LIVE&lt;/div&gt;&lt;div class=&quot;play-btn&quot;&gt;▶&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;post&quot;&gt;
-&lt;div class=&quot;post-head&quot;&gt;&lt;div class=&quot;post-user&quot;&gt;&lt;div class=&quot;avatar&quot;&gt;🔧&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;post-name&quot;&gt;Engine Ustad &lt;span class=&quot;verified&quot;&gt;✓&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;meta&quot;&gt;Engine • 8.2K views • कल&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;video-wrap&quot; onclick=&quot;showToast(&#x27;▶️ Engine Video Playing...&#x27;)&quot;&gt;
-&lt;img src=&quot;https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&amp;q=80&quot; alt=&quot;Engine&quot;&gt;
-&lt;div class=&quot;chip&quot;&gt;⚙️ ENGINE SPECIAL&lt;/div&gt;&lt;div class=&quot;live-chip&quot;&gt;NEW&lt;/div&gt;&lt;div class=&quot;play-btn&quot;&gt;▶&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;post&quot;&gt;
-&lt;div class=&quot;post-head&quot;&gt;&lt;div class=&quot;post-user&quot;&gt;&lt;div class=&quot;avatar&quot;&gt;🕌&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;post-name&quot;&gt;Namaz Time &lt;span class=&quot;verified&quot;&gt;✓&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;meta&quot;&gt;आज का समय&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div style=&quot;padding:12px;background:#151515;margin:0 12px 12px;border-radius:12px;border:1px solid #222&quot;&gt;
-&lt;div style=&quot;display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px&quot;&gt;&lt;span&gt;Fajr&lt;/span&gt;&lt;b style=&quot;color:#ff6b00&quot;&gt;05:12 AM&lt;/b&gt;&lt;/div&gt;
-&lt;div style=&quot;display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px&quot;&gt;&lt;span&gt;Dhuhr&lt;/span&gt;&lt;b style=&quot;color:#ff6b00&quot;&gt;12:34 PM&lt;/b&gt;&lt;/div&gt;
-&lt;div style=&quot;display:flex;justify-content:space-between;font-size:13px&quot;&gt;&lt;span&gt;Asr&lt;/span&gt;&lt;b style=&quot;color:#ff6b00&quot;&gt;04:15 PM&lt;/b&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div style=&quot;height:20px&quot;&gt;&lt;/div&gt;
-
-&lt;div class=&quot;bottom&quot;&gt;
-&lt;button class=&quot;nav active&quot; onclick=&quot;showToast(&#x27;Feed - 3 new posts&#x27;)&quot;&gt;&lt;span style=&quot;font-size:20px&quot;&gt;▶&lt;/span&gt;Feed&lt;/button&gt;
-&lt;button class=&quot;nav&quot; onclick=&quot;showToast(&#x27;Chat - 3 messages&#x27;)&quot;&gt;&lt;span style=&quot;font-size:20px&quot;&gt;💬&lt;/span&gt;Chat&lt;/button&gt;
-&lt;button class=&quot;nav&quot; onclick=&quot;showToast(&#x27;Add New Video&#x27;)&quot;&gt;&lt;div style=&quot;width:48px;height:48px;background:#ff6b00;border-radius:50%;display:grid;place-items:center;font-size:26px;color:#000;margin-top:-18px;border:3px solid #000&quot;&gt;+&lt;/div&gt;&lt;/button&gt;
-&lt;button class=&quot;nav&quot; onclick=&quot;showToast(&#x27;Video Library - 25 videos&#x27;)&quot;&gt;&lt;span style=&quot;font-size:20px&quot;&gt;🎥&lt;/span&gt;Video&lt;/button&gt;
-&lt;button class=&quot;nav&quot; onclick=&quot;showToast(&#x27;Settings - Muslim Filter ON&#x27;)&quot;&gt;&lt;span style=&quot;font-size:20px&quot;&gt;⚙️&lt;/span&gt;Settings&lt;/button&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div id=&quot;toast&quot; class=&quot;toast&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-function showToast(m){
-  var t=document.getElementById(&#x27;toast&#x27;);
-  t.textContent=m;
-  t.style.display=&#x27;block&#x27;;
-  clearTimeout(t._t);
-  t._t=setTimeout(function(){t.style.display=&#x27;none&#x27;},2500);
-}
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</textarea>
-<div class="note">
-<b>सर जी इसमें क्या ठीक है:</b><br>
-• पहले खाली डब्बा था - अब 2 video हैं Brake और Engine - Play button ▶ है<br>
-• Zoom करो तो video zoom होगा, खाली नहीं<br>
-• Namaz Time भी है<br>
-• सब buttons working - Chat, Video, Settings पे click करो तो Toast आएगा<br>
-• NO DOCTYPE - D OCTYPE वाला टूटा नहीं आएगा!<br><br>
-<b>Steps:</b> COPY -> GitHub Delete old -> Create new file index.html -> Paste -> Commit
-</div>
-<script>
-const raw=`<html lang="hi">
+<htm
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -206,9 +53,7 @@ body{background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Se
 <div class="top-left"><div class="az-logo">AZ</div><div><div class="brand-title">AZ FINAL <span class="live-pill">COMPLETE 2025</span></div><div class="sub"><span class="green-dot"></span>अस्सलाम वालेकुम - सब working</div></div></div>
 <div style="display:flex;gap:8px"><div style="width:32px;height:32px;background:#151515;border-radius:50%;display:grid;place-items:center">🔔</div><div style="width:32px;height:32px;background:#151515;border-radius:50%;display:grid;place-items:center">💬</div></div>
 </div>
-
 <div class="search-wrap"><div class="search-box">🔍<input id="search" placeholder="Brake, Engine, Clutch खोजें..." onkeypress="if(event.key==='Enter')showToast('Search: '+this.value)"></div></div>
-
 <div class="cats">
 <button class="cat" onclick="showToast('Aap - 3 new messages')"><div class="cat-ring dim"><div class="cat-inner">💬<span class="cat-badge">3</span></div></div><span class="cat-label">Aap</span></button>
 <button class="cat" onclick="showToast('Brake Videos - 12 videos')"><div class="cat-ring"><div class="cat-inner">🛞</div></div><span class="cat-label">Brake</span></button>
@@ -217,9 +62,7 @@ body{background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Se
 <button class="cat" onclick="showToast('Namaz Times')"><div class="cat-ring"><div class="cat-inner">🕌</div></div><span class="cat-label">Namaz</span></button>
 <button class="cat" onclick="showToast('Settings - AI Ustad')"><div class="cat-ring"><div class="cat-inner">⚙️</div></div><span class="cat-label">Setting</span></button>
 </div>
-
 <div class="ai-box"><div class="ai-icon">🤖</div><div style="font-size:12px;line-height:1.4">अस्सलाम वालेकुम sir! अब सब working है! Zoom करो तो video दिखेगा, खाली डब्बा नहीं! Brake, Engine, Clutch - सब videos चलेंगे!</div></div>
-
 <div class="post">
 <div class="post-head"><div class="post-user"><div class="avatar">👨🏽‍🔧</div><div><div class="post-name">Ustad Rafi <span class="verified">✓</span></div><div class="meta">Brake Repair • 12.4K views • आज</div></div></div><div style="font-size:18px">⋮</div></div>
 <div class="video-wrap" onclick="showToast('▶️ Brake Video Playing...')">
@@ -227,7 +70,6 @@ body{background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Se
 <div class="chip">🔧 BRAKE WORKSHOP</div><div class="live-chip">LIVE</div><div class="play-btn">▶</div>
 </div>
 </div>
-
 <div class="post">
 <div class="post-head"><div class="post-user"><div class="avatar">🔧</div><div><div class="post-name">Engine Ustad <span class="verified">✓</span></div><div class="meta">Engine • 8.2K views • कल</div></div></div></div>
 <div class="video-wrap" onclick="showToast('▶️ Engine Video Playing...')">
@@ -235,7 +77,6 @@ body{background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Se
 <div class="chip">⚙️ ENGINE SPECIAL</div><div class="live-chip">NEW</div><div class="play-btn">▶</div>
 </div>
 </div>
-
 <div class="post">
 <div class="post-head"><div class="post-user"><div class="avatar">🕌</div><div><div class="post-name">Namaz Time <span class="verified">✓</span></div><div class="meta">आज का समय</div></div></div></div>
 <div style="padding:12px;background:#151515;margin:0 12px 12px;border-radius:12px;border:1px solid #222">
@@ -244,9 +85,7 @@ body{background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Se
 <div style="display:flex;justify-content:space-between;font-size:13px"><span>Asr</span><b style="color:#ff6b00">04:15 PM</b></div>
 </div>
 </div>
-
 <div style="height:20px"></div>
-
 <div class="bottom">
 <button class="nav active" onclick="showToast('Feed - 3 new posts')"><span style="font-size:20px">▶</span>Feed</button>
 <button class="nav" onclick="showToast('Chat - 3 messages')"><span style="font-size:20px">💬</span>Chat</button>
@@ -255,7 +94,6 @@ body{background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Se
 <button class="nav" onclick="showToast('Settings - Muslim Filter ON')"><span style="font-size:20px">⚙️</span>Settings</button>
 </div>
 </div>
-
 <div id="toast" class="toast"></div>
 <script>
 function showToast(m){
@@ -268,16 +106,3 @@ function showToast(m){
 </script>
 </body>
 </html>
-`;
-function copy(){
-  var ta=document.getElementById('t');
-  ta.select();
-  navigator.clipboard.writeText(raw).then(()=>{
-    document.getElementById('ok').style.display='block';
-    setTimeout(()=>document.getElementById('ok').style.display='none',3000);
-  });
-}
-</script>
-<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body></html>
-
-
