@@ -1,109 +1,143 @@
 
-<htm
+</html>
+</html><!DOCTYPE html>
 <html lang="hi">
-<head>
+<head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AZ FINAL - COMPLETE WORKING 2025</title>
+<title>AZ MECHANICAL - FINAL FINAL - No Box - All Working</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;display:flex;justify-content:center;min-height:100vh}
-.app{width:100%;max-width:430px;background:#000;min-height:100vh;display:flex;flex-direction:column;border-left:1px solid #222;border-right:1px solid #222}
-.top{position:sticky;top:0;z-index:30;background:#000;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1a1a1a}
-.top-left{display:flex;gap:10px;align-items:center}
-.az-logo{width:44px;height:44px;background:#ff6b00;border-radius:14px;display:grid;place-items:center;font-weight:900;font-size:20px}
-.brand-title{font-weight:900;font-size:17px;display:flex;gap:6px;align-items:center}
-.live-pill{background:#ff6b00;color:#000;font-size:10px;font-weight:900;padding:2px 7px;border-radius:6px}
-.sub{font-size:11px;color:#777;display:flex;gap:4px;align-items:center;margin-top:2px}
-.green-dot{width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block}
-.search-wrap{padding:10px 12px}
-.search-box{background:#151515;border:1px solid #222;border-radius:999px;display:flex;gap:10px;align-items:center;padding:12px 14px}
-.search-box input{flex:1;background:transparent;border:none;outline:none;color:#fff;font-size:14px}
-.cats{padding:6px 8px 10px;display:flex;gap:12px;overflow-x:auto;scrollbar-width:none}
-.cats::-webkit-scrollbar{display:none}
-.cat{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:none;color:#fff}
-.cat-ring{width:64px;height:64px;border-radius:50%;padding:3px;background:linear-gradient(135deg,#ff6b00,#ffb700);display:grid;place-items:center}
-.cat-ring.dim{background:#222;padding:2px}
-.cat-inner{width:100%;height:100%;background:#111;border-radius:50%;display:grid;place-items:center;font-size:26px;position:relative}
-.cat-badge{position:absolute;top:-2px;right:-2px;background:#ff6b00;color:#000;font-size:11px;font-weight:900;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;border:2px solid #000}
-.cat-label{font-size:12px;color:#aaa}
-.post{margin-top:8px;background:#0a0a0a;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a}
-.post-head{padding:10px 12px;display:flex;justify-content:space-between;align-items:center}
-.post-user{display:flex;gap:10px;align-items:center}
-.avatar{width:38px;height:38px;border-radius:50%;background:#222;display:grid;place-items:center;font-size:18px}
-.post-name{font-weight:700;font-size:13px;display:flex;gap:6px;align-items:center}
-.verified{width:18px;height:18px;background:#ff6b00;border-radius:50%;display:grid;place-items:center;font-size:11px;color:#000;font-weight:900}
-.meta{font-size:11px;color:#777;margin-top:2px}
-.video-wrap{position:relative;background:#000;aspect-ratio:16/9;overflow:hidden;cursor:pointer}
-.video-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s}
-.video-wrap:hover img{transform:scale(1.05)}
-.chip{position:absolute;top:10px;left:10px;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);padding:6px 12px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid rgba(255,255,255,0.1)}
-.live-chip{position:absolute;top:10px;right:10px;background:#ff6b00;color:#000;padding:6px 12px;border-radius:999px;font-size:11px;font-weight:900}
-.play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:rgba(255,107,0,0.9);border-radius:50%;display:grid;place-items:center;font-size:28px;color:#000;box-shadow:0 4px 20px rgba(0,0,0,0.5)}
-.bottom{position:sticky;bottom:0;background:#000;border-top:1px solid #1a1a1a;display:flex;justify-content:space-around;padding:6px 0 8px}
-.nav{flex:1;background:none;border:none;color:#555;display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px;font-size:11px}
-.nav.active{color:#ff6b00}
-.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#ff6b00;color:#000;padding:10px 16px;border-radius:999px;font-size:12px;font-weight:700;z-index:99;display:none;white-space:nowrap}
-.ai-box{margin:8px 12px;background:#151515;border:1px solid #ff6b0033;border-radius:14px;padding:10px 12px;display:flex;gap:10px;align-items:flex-start}
-.ai-icon{width:36px;height:36px;background:#ff6b00;border-radius:50%;display:grid;place-items:center;flex-shrink:0;font-size:18px}
+body{background:#000;color:#fff;font-family:system-ui;display:flex;justify-content:center;min-height:100vh}
+.app{width:100%;max-width:430px;background:#000;min-height:100vh;position:relative;overflow:hidden;border-left:1px solid #222;border-right:1px solid #222;display:flex;flex-direction:column}
+.top{height:56px;background:#000;border-bottom:1px solid #222;display:flex;align-items:center;justify-content:space-between;padding:0 12px;position:sticky;top:0;z-index:10}
+.logo{width:38px;height:38px;background:#ffcc00;border-radius:10px;display:grid;place-items:center;color:#000;font-weight:900}
+.live{font-size:10px;background:#ff0000;color:#fff;padding:2px 6px;border-radius:4px;font-weight:800;margin-left:8px}
+.reel-info{font-size:11px;color:#aaa;padding:6px 12px;display:flex;justify-content:space-between}
+.stage{flex:1;position:relative;background:#111;overflow:hidden}
+.stage img{width:100%;height:100%;object-fit:cover;display:block}
+.greeting{position:absolute;left:12px;bottom:145px;font-size:14px;color:rgba(255,255,255,0.55);text-shadow:0 1px 4px rgba(0,0,0,0.8);font-weight:600;max-width:200px;line-height:1.2}
+.floating-ai{position:absolute;top:90px;right:16px;width:40px;height:40px;background:rgba(255,204,0,0.7);border-radius:50%;display:grid;place-items:center;font-size:20px;animation:float 3s ease-in-out infinite;cursor:pointer;z-index:5}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.right-bar{position:absolute;right:8px;bottom:180px;display:flex;flex-direction:column;gap:14px;align-items:center;z-index:5}
+.icon-btn{width:42px;height:42px;background:rgba(0,0,0,0.5);border-radius:50%;display:grid;place-items:center;font-size:18px;backdrop-filter:blur(4px);cursor:pointer;border:1px solid rgba(255,255,255,0.1)}
+.count{font-size:10px;color:#fff;margin-top:2px;font-weight:600}
+.cards{position:absolute;left:8px;right:58px;bottom:92px;display:flex;flex-direction:column;gap:6px;z-index:5}
+.card{background:rgba(0,0,0,0.78);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:8px 10px;font-size:11px;line-height:1.3;backdrop-filter:blur(6px)}
+.card b{color:#ffcc00}
+.call-row{position:absolute;left:8px;right:8px;bottom:56px;display:flex;gap:6px;z-index:5}
+.call-btn{flex:1;height:36px;border-radius:999px;border:none;font-weight:700;font-size:12px;cursor:pointer}
+.call-btn.orange{background:#ff6b00;color:#000}
+.call-btn.dark{background:#222;color:#fff;border:1px solid #333}
+.bottom{height:56px;background:#000;border-top:1px solid #222;display:flex;justify-content:space-around;align-items:center;position:sticky;bottom:0;z-index:10}
+.nav{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;color:#666;background:none;border:none;cursor:pointer}
+.nav.active{color:#ffcc00}
+.plus{width:48px;height:48px;background:#ff6b00;border-radius:50%;display:grid;place-items:center;font-size:28px;color:#000;margin-top:-14px;border:3px solid #000}
+.modal{position:fixed;inset:0;background:#000;z-index:100;display:none;flex-direction:column}
+.modal.on{display:flex}
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#ffcc00;color:#000;padding:8px 14px;border-radius:999px;font-size:12px;font-weight:700;z-index:200;display:none}
+.perm{position:fixed;inset:0;background:#fff;z-index:200;display:flex;flex-direction:column;padding:24px;color:#000}
 </style>
 </head>
 <body>
-<div class="app">
+<div class="app" id="app">
 <div class="top">
-<div class="top-left"><div class="az-logo">AZ</div><div><div class="brand-title">AZ FINAL <span class="live-pill">COMPLETE 2025</span></div><div class="sub"><span class="green-dot"></span>अस्सलाम वालेकुम - सब working</div></div></div>
-<div style="display:flex;gap:8px"><div style="width:32px;height:32px;background:#151515;border-radius:50%;display:grid;place-items:center">🔔</div><div style="width:32px;height:32px;background:#151515;border-radius:50%;display:grid;place-items:center">💬</div></div>
+<div style="display:flex;align-items:center"><div class="logo">AZ</div><div style="margin-left:8px;font-weight:800;font-size:14px">AZ MECHANICAL <span class="live">LIVE</span></div><div style="margin-left:8px;font-size:11px;color:#aaa">Asr 3:42</div></div>
+<div style="display:flex;gap:8px;align-items:center"><div style="font-size:11px;background:#222;padding:4px 8px;border-radius:999px">Call: +966590237487</div><button onclick="openMenu()" style="background:none;border:none;color:#fff;font-size:20px">⋮</button></div>
 </div>
-<div class="search-wrap"><div class="search-box">🔍<input id="search" placeholder="Brake, Engine, Clutch खोजें..." onkeypress="if(event.key==='Enter')showToast('Search: '+this.value)"></div></div>
-<div class="cats">
-<button class="cat" onclick="showToast('Aap - 3 new messages')"><div class="cat-ring dim"><div class="cat-inner">💬<span class="cat-badge">3</span></div></div><span class="cat-label">Aap</span></button>
-<button class="cat" onclick="showToast('Brake Videos - 12 videos')"><div class="cat-ring"><div class="cat-inner">🛞</div></div><span class="cat-label">Brake</span></button>
-<button class="cat" onclick="showToast('Engine Videos - 8 videos')"><div class="cat-ring"><div class="cat-inner">⚙️</div></div><span class="cat-label">Engine</span></button>
-<button class="cat" onclick="showToast('Clutch - 5 videos')"><div class="cat-ring"><div class="cat-inner">🔧</div></div><span class="cat-label">Clutch</span></button>
-<button class="cat" onclick="showToast('Namaz Times')"><div class="cat-ring"><div class="cat-inner">🕌</div></div><span class="cat-label">Namaz</span></button>
-<button class="cat" onclick="showToast('Settings - AI Ustad')"><div class="cat-ring"><div class="cat-inner">⚙️</div></div><span class="cat-label">Setting</span></button>
+<div class="reel-info"><span>JCB • 8 Videos • SWIPE <span id="sw">1</span>/8</span><span style="background:#ffcc00;color:#000;padding:2px 8px;border-radius:999px;font-weight:800;font-size:10px">SHOWCASE</span></div>
+<div class="stage" id="stage" ontouchstart="ts(event)" ontouchend="te(event)">
+<img id="mainImg" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80" alt="JCB">
+<div class="greeting" id="greet">अस्सलाम वालेकुम और क्या हाल है?</div>
+<div class="floating-ai" onclick="openAI()">🤖</div>
+<div class="right-bar">
+<button class="icon-btn" onclick="like()">❤️<div class="count" id="lc">34.5K</div></button>
+<button class="icon-btn" onclick="openComments()">💬<div class="count">35</div></button>
+<button class="icon-btn" onclick="share()">↗️<div class="count">1.2K</div></button>
+<div style="width:42px;height:42px;background:#ffcc00;border-radius:50%;display:grid;place-items:center;color:#000;font-weight:900">A</div>
 </div>
-<div class="ai-box"><div class="ai-icon">🤖</div><div style="font-size:12px;line-height:1.4">अस्सलाम वालेकुम sir! अब सब working है! Zoom करो तो video दिखेगा, खाली डब्बा नहीं! Brake, Engine, Clutch - सब videos चलेंगे!</div></div>
-<div class="post">
-<div class="post-head"><div class="post-user"><div class="avatar">👨🏽‍🔧</div><div><div class="post-name">Ustad Rafi <span class="verified">✓</span></div><div class="meta">Brake Repair • 12.4K views • आज</div></div></div><div style="font-size:18px">⋮</div></div>
-<div class="video-wrap" onclick="showToast('▶️ Brake Video Playing...')">
-<img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80" alt="Brake">
-<div class="chip">🔧 BRAKE WORKSHOP</div><div class="live-chip">LIVE</div><div class="play-btn">▶</div>
+<div class="cards">
+<div class="card"><b>0590237487 - Azad</b> - Owner Personal - Azad Ansari</div>
+<div class="card"><b>+966544443317 - Abu Badar</b> - AZ MECHANICAL - <b>Kaful Asaram / Takka Ful Al Saharan</b> - Trusted JCB Specialist - Riyadh - Saudi Arabia - Manager Tarikh: +966506565041</div>
 </div>
-</div>
-<div class="post">
-<div class="post-head"><div class="post-user"><div class="avatar">🔧</div><div><div class="post-name">Engine Ustad <span class="verified">✓</span></div><div class="meta">Engine • 8.2K views • कल</div></div></div></div>
-<div class="video-wrap" onclick="showToast('▶️ Engine Video Playing...')">
-<img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80" alt="Engine">
-<div class="chip">⚙️ ENGINE SPECIAL</div><div class="live-chip">NEW</div><div class="play-btn">▶</div>
+<div class="call-row">
+<button class="call-btn dark" onclick="makeCall('+966590237487','Azad')">Phone Call</button>
+<button class="call-btn orange" onclick="makeCall('+966544443317','Abu Badar')">Call</button>
+<button class="call-btn dark" onclick="makeCall('+966506565041','Manager Tarikh')">Video Call</button>
 </div>
 </div>
-<div class="post">
-<div class="post-head"><div class="post-user"><div class="avatar">🕌</div><div><div class="post-name">Namaz Time <span class="verified">✓</span></div><div class="meta">आज का समय</div></div></div></div>
-<div style="padding:12px;background:#151515;margin:0 12px 12px;border-radius:12px;border:1px solid #222">
-<div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px"><span>Fajr</span><b style="color:#ff6b00">05:12 AM</b></div>
-<div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px"><span>Dhuhr</span><b style="color:#ff6b00">12:34 PM</b></div>
-<div style="display:flex;justify-content:space-between;font-size:13px"><span>Asr</span><b style="color:#ff6b00">04:15 PM</b></div>
-</div>
-</div>
-<div style="height:20px"></div>
 <div class="bottom">
-<button class="nav active" onclick="showToast('Feed - 3 new posts')"><span style="font-size:20px">▶</span>Feed</button>
-<button class="nav" onclick="showToast('Chat - 3 messages')"><span style="font-size:20px">💬</span>Chat</button>
-<button class="nav" onclick="showToast('Add New Video')"><div style="width:48px;height:48px;background:#ff6b00;border-radius:50%;display:grid;place-items:center;font-size:26px;color:#000;margin-top:-18px;border:3px solid #000">+</div></button>
-<button class="nav" onclick="showToast('Video Library - 25 videos')"><span style="font-size:20px">🎥</span>Video</button>
-<button class="nav" onclick="showToast('Settings - Muslim Filter ON')"><span style="font-size:20px">⚙️</span>Settings</button>
+<button class="nav active" onclick="switchTab('home')">🏠<span>HOME</span></button>
+<button class="nav" onclick="switchTab('mech')">🔧<span>Mechanical</span></button>
+<button class="nav" onclick="document.getElementById('fileIn').click()"><div class="plus">+</div></button>
+<button class="nav" onclick="switchTab('reels')">🎬<span>Reels</span></button>
+<button class="nav" onclick="switchTab('profile')">👤<span>Profile</span></button>
 </div>
 </div>
-<div id="toast" class="toast"></div>
+
+<div class="modal" id="callModal">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px">
+<div style="width:90px;height:90px;background:#ffcc00;border-radius:50%;display:grid;place-items:center;font-size:40px">📞</div>
+<div id="callName" style="margin-top:16px;font-weight:800;font-size:18px">Azad</div>
+<div id="callNum" style="color:#aaa;font-size:14px;margin-top:4px">+966590237487</div>
+<div style="font-size:12px;color:#666;margin-top:4px">Kaful Asaram - Riyadh - Connecting...</div>
+</div>
+<div style="padding:20px;display:flex;justify-content:space-around"><button onclick="closeCall()" style="width:64px;height:64px;background:#ff0000;border-radius:50%;border:none;color:#fff;font-size:24px">✕</button><button onclick="closeCall()" style="width:64px;height:64px;background:#00c853;border-radius:50%;border:none;color:#fff;font-size:24px">📞</button></div>
+</div>
+
+<div class="modal" id="aiModal">
+<div style="height:56px;border-bottom:1px solid #222;display:flex;align-items:center;justify-content:space-between;padding:0 12px"><div style="font-weight:800">🤖 AZAD AI - Azad: 0590237487</div><button onclick="closeAI()" style="background:#222;border:none;color:#fff;width:32px;height:32px;border-radius:50%">✕</button></div>
+<div style="flex:1;padding:12px;overflow:auto" id="chatBox"><div style="background:#1a1a1a;padding:10px;border-radius:12px;font-size:13px;max-width:80%">अस्सलाम वालेकुम! AZ MECHANICAL में स्वागत है। Azad: 0590237487, Abu Badar: +966544443317 - Kaful Asaram</div></div>
+<div style="padding:10px;border-top:1px solid #222;display:flex;gap:8px"><input id="aiIn" placeholder="Message..." style="flex:1;background:#1a1a1a;border:1px solid #333;border-radius:999px;padding:10px 14px;color:#fff"><button onclick="sendAI()" style="width:40px;height:40px;background:#ffcc00;border-radius:50%;border:none">➤</button></div>
+</div>
+
+<div class="toast" id="toast"></div>
+<input type="file" id="fileIn" accept="image/*,video/*" style="display:none" onchange="handleFile(this)">
+
 <script>
-function showToast(m){
-  var t=document.getElementById('toast');
-  t.textContent=m;
-  t.style.display='block';
-  clearTimeout(t._t);
-  t._t=setTimeout(function(){t.style.display='none'},2500);
-}
+let idx=1;
+let liked=false;
+const imgs=[
+"https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80",
+"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+"https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+"https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80"
+];
+function toast(m){let t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',2000)}
+function makeCall(num,name){document.getElementById('callName').textContent=name;document.getElementById('callNum').textContent=num;document.getElementById('callModal').classList.add('on');setTimeout(()=>{window.location.href='tel:'+num},800)}
+function closeCall(){document.getElementById('callModal').classList.remove('on')}
+function openAI(){document.getElementById('aiModal').classList.add('on')}
+function closeAI(){document.getElementById('aiModal').classList.remove('on')}
+function sendAI(){let i=document.getElementById('aiIn');if(!i.value.trim())return;let b=document.getElementById('chatBox');b.innerHTML+=`<div style="background:#ffcc00;color:#000;padding:10px;border-radius:12px;font-size:13px;max-width:80%;margin:8px 0 0 auto;text-align:right">${i.value}</div>`;let v=i.value;i.value='';setTimeout(()=>{b.innerHTML+=`<div style="background:#1a1a1a;padding:10px;border-radius:12px;font-size:13px;max-width:80%;margin-top:8px">जी भाईजान, समझ गया! JCB का काम Azad: 0590237487 - Abu Badar: +966544443317 पर कॉल करिए - Kaful Asaram</div>`;b.scrollTop=b.scrollHeight},600)}
+function like(){liked=!liked;document.getElementById('lc').textContent=liked?'34.6K':'34.5K';toast(liked?'❤️ Liked!':'Unliked')}
+function openComments(){toast('💬 35 Comments - Ahmed: Mashallah great work bhai')}
+function share(){toast('↗️ Share किया!')}
+function openMenu(){toast('⋮ Menu: Report, Save, Copy Link, Share')}
+function switchTab(t){document.querySelectorAll('.nav').forEach(n=>n.classList.remove('active'));event.currentTarget.classList.add('active');if(t==='mech')toast('🔧 Mechanical - Only Workshop Videos');if(t==='reels')toast('🎬 Reels Dashboard - 8 Videos - 125K Views - 34.5K Likes');if(t==='profile')toast('👤 Profile - Azad Owner 0590237487 - Abu Badar +966544443317 - Kaful Asaram - Settings - ONE MEIN SARRA');if(t==='home')toast('🏠 Home - All JCB Videos')}
+function ts(e){this.sx=e.touches[0].clientX}
+function te(e){let dx=this.sx-e.changedTouches[0].clientX;if(dx>50){idx=idx<8?idx+1:1}else if(dx<-50){idx=idx>1?idx-1:8}document.getElementById('sw').textContent=idx;document.getElementById('mainImg').src=imgs[(idx-1)%imgs.length];}
+function handleFile(inp){if(inp.files[0]){let url=URL.createObjectURL(inp.files[0]);document.getElementById('mainImg').src=url;toast('✅ Gallery से Photo/Video Add किया! + Beauty Filter ON')}}
 </script>
-</body>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
 </html>
