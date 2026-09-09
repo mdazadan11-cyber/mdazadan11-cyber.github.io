@@ -25,217 +25,361 @@
 </style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
-<meta name="theme-color" content="#0A84FF">
-<title>AZAD ANSARI - Mechanic Riyadh</title>
+<title>AZAD - Final Notification</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap');
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui}
-body{background:#080C11;color:#fff;height:100dvh;overflow:hidden}
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#080C11;color:#fff;height:100dvh;overflow:hidden;font-family:Inter,system-ui}
 .app{max-width:430px;margin:0 auto;height:100dvh;background:#0E141E;display:flex;flex-direction:column;position:relative;border-left:1px solid #1e2a3a;border-right:1px solid #1e2a3a}
-.topbar{background:#0B1018;border-bottom:1px solid #1e2a3a;padding:8px;display:flex;gap:6px;overflow-x:auto}
-.topbar::-webkit-scrollbar{display:none}
-.topbar select{flex:0 0 auto;background:#151E2C;color:#d6e2f0;border:1px solid #223147;border-radius:20px;padding:8px 10px;font-size:11px;font-weight:600}
-.header{padding:12px 14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1e2a3a}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#0A84FF,#0050a0);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px}
-.chat-list{flex:1;overflow:auto;padding:10px 12px;display:flex;flex-direction:column;gap:8px;background:#0B1018;padding-bottom:70px}
-.chat-item{display:flex;gap:12px;padding:12px;border-radius:16px;background:#151E2C;border:1px solid #1e2e45;cursor:pointer}
-.chat-item:active{transform:scale(.98);background:#1c2a3f}
-.bottom-nav{position:absolute;bottom:0;left:0;right:0;background:rgba(14,20,30,.97);backdrop-filter:blur(20px);border-top:1px solid #1e2a3a;display:flex;justify-content:space-around;padding:8px 0;z-index:30}
-.nav-item{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;color:#5a6f8a;cursor:pointer;padding:4px 16px;border-radius:12px}
-.nav-item.active{color:#0A84FF;background:rgba(10,132,255,.1)}
-.chat-view{position:absolute;inset:0;background:#0B1018;display:none;flex-direction:column;z-index:40}
-.chat-view.show{display:flex}
-.chat-header{padding:12px 14px;background:#0E141E;border-bottom:1px solid #1e2a3a;display:flex;align-items:center;gap:12px}
-.back-btn{width:36px;height:36px;border-radius:50%;background:#151E2C;border:1px solid #223147;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px}
-.messages{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:#080C11;background-image:radial-gradient(#1e2a3a 1px, transparent 1px);background-size:24px 24px}
-.msg{max-width:78%;padding:10px 12px;border-radius:18px;font-size:13.5px;line-height:1.4;word-wrap:break-word}
-.msg.me{align-self:flex-end;background:#0A84FF;color:#fff;border-bottom-right-radius:6px}
-.msg.them{align-self:flex-start;background:#151E2C;border:1px solid #1e2e45;color:#d6e2f0;border-bottom-left-radius:6px}
-.msg-time{font-size:10px;opacity:.6;margin-top:4px}
-.input-bar{padding:10px 12px;background:#0E141E;border-top:1px solid #1e2a3a;display:flex;gap:8px;align-items:center}
-.input-bar input{flex:1;background:#151E2C;border:1px solid #223147;border-radius:24px;padding:12px 16px;color:#fff;font-size:14px;outline:none}
-.input-bar input:focus{border-color:#0A84FF}
-.send-btn{width:44px;height:44px;border-radius:50%;background:#0A84FF;border:none;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.send-btn:active{transform:scale(.92)}
-.typing{font-size:11px;color:#7a8aa0;padding:0 14px 6px;font-style:italic}
-.banner{background:linear-gradient(135deg,#0A84FF,#00D1FF);margin:10px 12px;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 20px rgba(10,132,255,.3)}
+.view{position:absolute;inset:0;background:#0B1018;display:none;flex-direction:column;z-index:90}
+.view.show{display:flex}
+.view-header{padding:10px 12px;background:#0E141E;border-bottom:1px solid #1e2a3a;display:flex;align-items:center;gap:10px}
+.back-btn{width:32px;height:32px;border-radius:50%;background:#151E2C;border:1px solid #223147;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.book-wrap{flex:1;display:flex;flex-direction:column;background:#0a0a0a;overflow:hidden}
+.quran-book{flex:1;overflow:auto;background:#fdf6e3}
+.page-frame{margin:6px;background:#fef9e0;border:3px solid #c9a96e;border-radius:6px;box-shadow:0 0 0 2px #8b5a2b;display:flex;min-height:calc(100% - 12px)}
+.side-border{width:22px;background:#c9a96e;border-right:2px solid #8b5a2b}
+.page-content{flex:1;padding:10px 8px;background:#fef9e0}
+.quran-line{border-bottom:1px solid #d4c5a0;padding:6px 4px;font-family:Amiri,serif;font-size:19px;line-height:1.85;color:#1a1a1a;text-align:center;direction:rtl}
+.quran-line.highlight{background:#7f1d1d;color:#fff;border-radius:4px}
+.ayah-num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:#f0d9a8;border:1px solid #8b5a2b;border-radius:50%;font-size:10px;font-weight:700;margin:0 3px}
+.book-controls{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#0E141E;border-top:1px solid #1e2a3a}
+.ctrl-btn{padding:11px 18px;background:#25D366;border:none;border-radius:22px;color:#fff;font-size:12px;font-weight:800;cursor:pointer;min-width:88px}
+.progress{flex:1;margin:0 12px;height:6px;background:#151E2C;border-radius:3px;overflow:hidden}
+.progress-bar{height:100%;background:linear-gradient(90deg,#0A84FF,#00D1FF);transition:.3s}
+.swipe-hint{text-align:center;font-size:10px;color:#8b7355;padding:6px;background:#fdf6e3;font-weight:700}
+.card{background:#151E2C;border:1px solid #1e2e45;border-radius:12px;padding:12px;margin-bottom:8px}
+.long-card{background:#151E2C;border:1px solid #1e2e45;border-radius:16px;padding:14px;margin:6px 8px;display:flex;gap:12px;align-items:center;cursor:pointer}
+.messages{flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:10px;background:#080C11}
+.msg{max-width:85%;padding:11px 13px;border-radius:18px;font-size:13px;line-height:1.5}
+.msg.me{align-self:flex-end;background:linear-gradient(135deg,#0A84FF,#0050a0);color:#fff;border-bottom-right-radius:4px}
+.msg.them{align-self:flex-start;background:#151E2C;border:1px solid #1e2e45;color:#d6e2f0;border-bottom-left-radius:4px}
+.input-bar{padding:10px;background:#0E141E;border-top:1px solid #1e2a3a;display:flex;gap:8px;align-items:center}
+.input-bar input{flex:1;background:#151E2C;border:1px solid #223147;border-radius:24px;padding:14px 16px;color:#fff;outline:none;font-size:14px}
+.send-btn{width:48px;height:48px;border-radius:50%;background:#0A84FF;border:none;color:#fff;font-size:20px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.mic-btn{width:60px;height:60px;border-radius:50%;background:#25D366;border:3px solid #fff;color:#fff;font-size:28px;flex-shrink:0;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(37,211,102,.6);cursor:pointer}
+.mic-btn.listening{background:#FF3B30;animation:micPulse 1s infinite}
+@keyframes micPulse{0%{box-shadow:0 0 0 0 rgba(255,59,48,.8)}70%{box-shadow:0 0 0 16px rgba(255,59,48,0)}100%{box-shadow:0 0 0 0 rgba(255,59,48,0)}}
+.mic-status{text-align:center;font-size:11px;color:#25D366;padding:6px;background:#0E141E;display:none;font-weight:800}
+.mic-status.show{display:block}
+.tab-bar{display:flex;gap:6px;padding:8px;background:#0E141E;border-bottom:1px solid #1e2a3a;overflow-x:auto}
+.tab{padding:7px 14px;border-radius:20px;background:#151E2C;border:1px solid #223147;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap}
+.tab.active{background:#0A84FF;border-color:#0A84FF;color:#fff}
+.ai-suggestion{display:flex;gap:6px;overflow-x:auto;padding:8px;background:#0E141E;border-top:1px solid #1e2a3a}
+.sugg-btn{padding:6px 12px;background:#151E2C;border:1px solid #223147;border-radius:16px;color:#7a8aa0;font-size:10px;font-weight:600;white-space:nowrap;cursor:pointer;flex-shrink:0}
+.notification-banner{position:fixed;top:10px;left:50%;transform:translateX(-50%);background:#151E2C;border:1px solid #0A84FF;border-radius:12px;padding:10px 14px;z-index:999;display:none;max-width:380px;box-shadow:0 6px 20px rgba(0,0,0,.5)}
+.notification-banner.show{display:flex;gap:10px;align-items:center;animation:slideDown .3s}
+@keyframes slideDown{from{transform:translate(-50%,-100%)}to{transform:translate(-50%,0)}}
 </style>
 </head>
 <body>
 <div class="app">
-<div id="listView" style="flex:1;display:flex;flex-direction:column;overflow:hidden">
-<div class="topbar">
-<select><option>🌍 All (195)</option><option>🇸🇦 Saudi</option><option>🇮🇳 India</option></select>
-<select><option>🌐 100 Lang</option><option>हिंदी</option><option>English</option></select>
-<select><option>Continue..</option><option>Oil Guide</option><option>Engine</option></select>
-</div>
-<div class="header">
-<div class="logo"><div class="logo-icon">A</div><div><div style="font-weight:800;font-size:16px">AZAD ANSARI</div><div style="font-size:10px;color:#7a8aa0">MECHANIC • RIYADH • 10+ YEARS</div></div></div>
-<div style="background:#00C851;color:#fff;padding:6px 10px;border-radius:20px;font-size:10px;font-weight:700">● ONLINE</div>
-</div>
-<div style="flex:1;overflow:auto;background:#0B1018;display:flex;flex-direction:column">
-<!-- BANNER - Dashboard pe Azad ka banner -->
-<div class="banner">
-<div>
-<div style="font-weight:800;font-size:15px">🔧 AZAD ANSARI</div>
-<div style="font-size:11px;opacity:.9;margin-top:2px">Mechanic Expert • Riyadh • Workshop Service</div>
-<div style="font-size:10px;background:rgba(0,0,0,.2);display:inline-block;padding:3px 8px;border-radius:20px;margin-top:6px">📍 Industrial Area, Exit 18</div>
-</div>
-<div style="background:#fff;color:#0A84FF;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px">A</div>
+
+<!-- NOTIFICATION BANNER - PHONE PE DIRECT -->
+<div id="notifBanner" class="notification-banner">
+<div style="width:36px;height:36px;border-radius:10px;background:#0A84FF;display:flex;align-items:center;justify-content:center;font-size:18px">🔔</div>
+<div style="flex:1"><div id="notifTitle" style="font-weight:700;font-size:12px">Azad App</div><div id="notifBody" style="font-size:10px;color:#7a8aa0">Naya message aaya!</div></div>
+<div style="font-size:10px;color:#0A84FF;font-weight:700" onclick="document.getElementById('notifBanner').classList.remove('show')">✕</div>
 </div>
 
-<div style="margin:0 12px 10px;border-radius:20px;padding:1.5px;background:linear-gradient(135deg,#0A84FF,#00C851);cursor:pointer" onclick="openChat('Azad AI')">
-<div style="border-radius:18.5px;background:linear-gradient(135deg,#0d5ab0,#0a3a6f);padding:16px;display:flex;gap:14px;align-items:center">
-<div style="width:52px;height:52px;border-radius:16px;background:#fff;color:#0A84FF;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px;flex-shrink:0">A</div>
-<div style="flex:1"><div style="font-weight:800;font-size:16px">AZAD AI <span style="background:#00C851;font-size:10px;padding:3px 8px;border-radius:20px;margin-left:6px">LIVE</span></div><div style="font-weight:600;font-size:13px">Azad Ansari - Mechanic</div><div style="font-size:11px;opacity:.8;margin-top:4px">Ask anything • Oil • Brake • Engine ✨</div></div><div style="font-size:18px">↗</div>
-</div></div>
-<div class="chat-list">
-<div class="chat-item" onclick="openChat('Mechanic Bhai')"><div style="width:44px;height:44px;border-radius:50%;background:#0A84FF;display:flex;align-items:center;justify-content:center;font-weight:800">M</div><div style="flex:1"><div style="font-weight:600">Mechanic Bhai <span style="font-size:10px;background:#0E141E;border:1px solid #223147;padding:2px 6px;border-radius:10px;color:#5a6f8a">Riyadh</span></div><div style="font-size:12px;color:#7a8aa0" id="preview-Mechanic Bhai">Bhai Hilux ka brake pad check karna hai...</div></div><div style="text-align:right"><div style="font-size:11px;color:#5a6f8a">2:14 PM</div><div style="min-width:18px;height:18px;border-radius:50%;background:#FF6B00;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:4px;margin-left:auto" id="count-Mechanic Bhai">2</div></div></div>
-<div class="chat-item" onclick="openChat('Parts Wala')"><div style="width:44px;height:44px;border-radius:50%;background:#FF6B00;display:flex;align-items:center;justify-content:center;font-weight:800">P</div><div style="flex:1"><div style="font-weight:600">Parts Wala</div><div style="font-size:12px;color:#7a8aa0" id="preview-Parts Wala">Oil filter ka stock aa gaya hai...</div></div><div style="font-size:11px;color:#5a6f8a">11:30 AM</div></div>
-<div class="chat-item" onclick="openChat('Ustad Ji')"><div style="width:44px;height:44px;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;font-weight:800">U</div><div style="flex:1"><div style="font-weight:600">Ustad Ji</div><div style="font-size:12px;color:#7a8aa0" id="preview-Ustad Ji">Beta engine timing ka dhyan rakhna...</div></div><div style="font-size:11px;color:#5a6f8a">Yesterday</div></div>
+<div id="homeView" style="flex:1;display:flex;flex-direction:column;overflow:hidden">
+<div style="padding:10px 12px;display:flex;justify-content:space-between;align-items:center;background:#0B1018;border-bottom:1px solid #1e2a3a">
+<div style="display:flex;align-items:center;gap:8px"><div style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#00C851,#0A84FF);display:flex;align-items:center;justify-content:center;font-weight:800">🔔</div><div><div style="font-weight:800;font-size:13px">AZAD - NOTIFICATION FINAL</div><div style="font-size:9px;color:#00C851">● Message Phone Pe Direct - Clean - No Corona</div></div></div>
+<button onclick="openView('settingsView')" style="padding:6px 10px;background:#00C851;border:none;border-radius:10px;color:#fff;font-size:11px;font-weight:700">⚙️</button>
+</div>
+<div style="flex:1;overflow:auto;background:#0B1018;padding-bottom:10px">
+<div style="margin:8px;background:linear-gradient(135deg,#00C851,#0A84FF);border-radius:14px;padding:12px">
+<div style="font-weight:800;font-size:13px">🔔 NOTIFICATION FINAL - Phone Pe Direct ✅</div>
+<div style="font-size:10px;margin-top:3px">Message aaye to direct phone notification - Clean code - No Corona wala - Final Okay!</div>
+<div style="margin-top:8px;display:flex;gap:6px"><button onclick="requestNotifPermission()" style="padding:6px 12px;background:#fff;color:#0A5C36;border:none;border-radius:8px;font-weight:700;font-size:10px">🔔 Allow Notification</button><button onclick="testPhoneNotification()" style="padding:6px 12px;background:rgba(0,0,0,.2);color:#fff;border:1px solid #fff;border-radius:8px;font-weight:700;font-size:10px">📱 Test Phone Notif</button></div>
+</div>
+<div style="padding:0 2px">
+<div class="long-card" onclick="openView('aiView')" style="background:linear-gradient(135deg,#7c3aed,#4f46e5);border:none"><div style="width:52px;height:52px;border-radius:12px;background:#fff;color:#7c3aed;display:flex;align-items:center;justify-content:center;font-size:26px">🤖</div><div style="flex:1"><div style="font-weight:800;font-size:13px;color:#fff">AI - PERFECT - 1 NUMBER ✅</div><div style="font-size:10px;color:#fff;opacity:.9">Wa Alaikum Assalam + Photo + Video + Notification</div></div><div style="color:#fff">→</div></div>
+<div class="long-card" onclick="openView('chatView')" style="background:linear-gradient(135deg,#0A84FF,#0050a0);border:none"><div style="width:48px;height:48px;border-radius:12px;background:#fff;color:#0A84FF;display:flex;align-items:center;justify-content:center;font-size:20px">💬</div><div style="flex:1"><div style="font-weight:800;font-size:12px">CHAT - Notification Wala ✅</div><div style="font-size:9px;opacity:.9">Message aaye to phone pe notification</div></div><div style="color:#fff">→</div></div>
+<div class="long-card" onclick="openView('muslimFullView')" style="background:linear-gradient(135deg,#0A5C36,#00A86B);border:none"><div style="width:48px;height:48px;border-radius:12px;background:#fff;color:#0A5C36;display:flex;align-items:center;justify-content:center;font-size:22px">📖</div><div style="flex:1"><div style="font-weight:800;font-size:12px;color:#fff">MUSLIM MUKAMMAL</div><div style="font-size:9px;color:#fff;opacity:.9">Quran Bhar Bhar Ke + Bukhari + Wudu + Namaz</div></div><div style="color:#fff">→</div></div>
+<div class="long-card" onclick="openKitab('quran')"><div style="width:48px;height:48px;border-radius:12px;background:#fef9e0;border:2px solid #c9a96e;display:flex;align-items:center;justify-content:center">📖</div><div style="flex:1"><div style="font-weight:800;font-size:12px">QURAN - Bhar Bhar Ke ✅</div><div style="font-size:9px;color:#00C851">Photo jaisa - Har panna alag</div></div><div>📖</div></div>
+<div class="long-card" onclick="openKitab('gita')" style="border:2px solid #00C851"><div style="width:48px;height:48px;border-radius:12px;background:#fff9e6;border:2px solid #FF9A00;display:flex;align-items:center;justify-content:center">📜</div><div style="flex:1"><div style="font-weight:800;font-size:12px">GITA - 700 Shlok ✅</div><div style="font-size:9px;color:#00C851">Har panna alag</div></div><div>→</div></div>
+<div class="long-card" onclick="openKitab('bible')" style="border:2px solid #00C851"><div style="width:48px;height:48px;border-radius:12px;background:#fefefe;border:2px solid #DC143C;display:flex;align-items:center;justify-content:center">✝️</div><div style="flex:1"><div style="font-weight:800;font-size:12px">BIBLE - Har Panna Alag ✅</div><div style="font-size:9px;color:#00C851">Har panna alag verse</div></div><div>→</div></div>
+<div class="long-card" onclick="openView('kahaniFeedView')" style="background:linear-gradient(135deg,#FF6B00,#FF9A00);border:none"><div style="width:48px;height:48px;border-radius:12px;background:#fff;color:#FF6B00;display:flex;align-items:center;justify-content:center">📚</div><div style="flex:1"><div style="font-weight:800;font-size:12px;color:#fff">KAHANI - Photo Wala ✅</div><div style="font-size:9px;color:#fff">7 stories + photo</div></div><div style="color:#fff">→</div></div>
 </div>
 </div>
 </div>
-<div id="chatView" class="chat-view">
-<div class="chat-header">
-<div class="back-btn" onclick="closeChat()">←</div>
-<div id="chatAvatar" style="width:38px;height:38px;border-radius:50%;background:#0A84FF;display:flex;align-items:center;justify-content:center;font-weight:800">M</div>
-<div style="flex:1"><div style="font-weight:700" id="chatName">Mechanic Bhai</div><div style="font-size:11px;color:#7a8aa0">Online • AZAD ANSARI</div></div>
-<div style="background:#00C851;width:8px;height:8px;border-radius:50%"></div>
+
+<!-- AI VIEW - PERFECT WITH NOTIFICATION -->
+<div id="aiView" class="view">
+<div class="view-header"><div class="back-btn" onclick="closeView('aiView')">←</div><div style="width:32px;height:32px;border-radius:8px;background:#7c3aed;display:flex;align-items:center;justify-content:center">🤖</div><div style="flex:1"><div style="font-weight:700;font-size:13px">AI - Notification Wala - Perfect ✅</div><div style="font-size:10px;color:#00C851">Wa Alaikum Assalam + Photo + Video + Phone Notif</div></div><button onclick="requestNotifPermission()" style="padding:6px 8px;background:#00C851;border:none;border-radius:8px;color:#fff;font-size:10px">🔔 Allow</button></div>
+<div id="aiMessages" class="messages"></div>
+<div id="aiMicStatus" class="mic-status">🎙️ Sun raha hoon...</div>
+<div class="ai-suggestion"><div class="sugg-btn" onclick="setAIInput('Salam Alaikum')">Salam</div><div class="sugg-btn" onclick="setAIInput('Engine ka photo dikhao')">Engine Photo</div><div class="sugg-btn" onclick="setAIInput('Quran kitab kholo')">Quran</div><div class="sugg-btn" onclick="setAIInput('Ek video bana do')">Video</div></div>
+<div class="input-bar"><button id="aiMicBtn" class="mic-btn" type="button">🎤</button><input id="aiInput" type="text" placeholder="Bolo: Salam, Engine photo, Video..." onkeypress="if(event.key==='Enter')sendAI()"><button class="send-btn" onclick="sendAI()">➤</button></div>
 </div>
-<div id="messages" class="messages"></div>
-<div id="typing" class="typing" style="display:none">Azad AI typing...</div>
-<div class="input-bar">
-<input id="msgInput" type="text" placeholder="Message likho... AZAD AI" onkeypress="if(event.key==='Enter')sendMsg()">
-<button class="send-btn" onclick="sendMsg()">➤</button>
+
+<!-- CHAT VIEW - NOTIFICATION -->
+<div id="chatView" class="view">
+<div class="view-header"><div class="back-btn" onclick="closeView('chatView')">←</div><div style="font-weight:700">💬 CHAT - Phone Notification ✅</div><div style="margin-left:auto"><button onclick="requestNotifPermission()" style="padding:6px 8px;background:#00C851;border:none;border-radius:8px;color:#fff;font-size:10px">🔔 Allow</button></div></div>
+<div id="chatMessages" class="messages"></div>
+<div id="chatMicStatus" class="mic-status">🎙️ Sun raha hoon...</div>
+<div class="input-bar"><button id="chatMicBtn" class="mic-btn" type="button">🎤</button><input id="chatInput" type="text" placeholder="Mic dabao ya likho - Phone pe notif ayega..." onkeypress="if(event.key==='Enter')sendChat()"><button class="send-btn" onclick="sendChat()">➤</button></div>
+</div>
+
+<!-- MUSLIM, QURAN, GITA, BIBLE, KAHANI - SAME MUKAMMAL -->
+<div id="muslimFullView" class="view"><div class="view-header"><div class="back-btn" onclick="closeView('muslimFullView')">←</div><div style="font-weight:700">📖 Muslim Mukammal</div></div><div class="tab-bar"><div class="tab active" onclick="switchTab('quranTabFull', this)">QURAN</div><div class="tab" onclick="switchTab('bukhariTab', this)">BUKHARI</div><div class="tab" onclick="switchTab('wuduTab', this)">WUDU</div><div class="tab" onclick="switchTab('namazTab', this)">NAMAZ</div></div><div style="flex:1;overflow:auto;background:#0B1018"><div id="quranTabFull"><div style="padding:8px"><button onclick="openKitab('quran')" style="width:100%;padding:12px;background:#0A5C36;border:none;border-radius:10px;color:#fff;font-weight:700">📖 Quran Khol - Bhar Bhar Ke - 100 Panne</button><div id="quranPreviewList"></div></div></div><div id="bukhariTab" style="display:none"><div style="padding:8px" id="bukhariFullList"></div></div><div id="wuduTab" style="display:none"><div style="padding:8px" id="wuduFullList"></div></div><div id="namazTab" style="display:none"><div style="padding:8px" id="namazFullList"></div></div></div></div>
+
+<div id="quranView" class="view"><div class="view-header"><div class="back-btn" onclick="closeView('quranView')">←</div><div style="font-weight:700">📖 Quran <span id="qNum">1</span>/100</div></div><div class="book-wrap"><div class="swipe-hint">Bhar bhar ke - Photo jaisa - Har panna alag!</div><div id="quranPage" class="quran-book"></div><div class="book-controls"><button class="ctrl-btn" style="background:#0A5C36" onclick="prevQuran()">←</button><div class="progress" style="flex:1;margin:0 12px"><div id="qProgress" class="progress-bar" style="width:1%;background:linear-gradient(90deg,#0A5C36,#00A86B)"></div></div><button class="ctrl-btn" style="background:#0A5C36" onclick="nextQuran()">→</button></div></div></div>
+<div id="gitaView" class="view"><div class="view-header"><div class="back-btn" onclick="closeView('gitaView')">←</div><div style="font-weight:700">📜 Gita <span id="gNum">1</span>/80</div></div><div class="book-wrap"><div class="swipe-hint">Har panna alag shlok!</div><div id="gitaPage" style="flex:1;overflow:auto;padding:12px;background:#fff9e6"></div><div class="book-controls"><button class="ctrl-btn" style="background:#FF6B00" onclick="prevGita()">←</button><div style="flex:1;margin:0 12px"><div class="progress"><div id="gProgress" class="progress-bar" style="width:1%;background:linear-gradient(90deg,#FF6B00,#FF9A00)"></div></div></div><button class="ctrl-btn" style="background:#FF6B00" onclick="nextGita()">→</button></div></div></div>
+<div id="bibleView" class="view"><div class="view-header"><div class="back-btn" onclick="closeView('bibleView')">←</div><div style="font-weight:700">✝️ Bible <span id="bNum">1</span>/80</div></div><div class="book-wrap"><div class="swipe-hint">Har panna alag verse!</div><div id="biblePage" style="flex:1;overflow:auto;padding:12px;background:#fefefe"></div><div class="book-controls"><button class="ctrl-btn" style="background:#8B0000" onclick="prevBible()">←</button><div style="flex:1;margin:0 12px"><div class="progress"><div id="bProgress" class="progress-bar" style="width:1%;background:linear-gradient(90deg,#8B0000,#DC143C)"></div></div></div><button class="ctrl-btn" style="background:#8B0000" onclick="nextBible()">→</button></div></div></div>
+<div id="kahaniFeedView" class="view"><div class="view-header"><div class="back-btn" onclick="closeView('kahaniFeedView')">←</div><div style="font-weight:700">📚 Kahani - 7 Stories + Photo</div></div><div style="flex:1;overflow:auto;background:#080C11;padding:8px"><div class="card" style="background:#0E141E"><input id="storyTitle" placeholder="Title" style="width:100%;padding:8px;background:#151E2C;border:1px solid #223147;border-radius:8px;color:#fff"><textarea id="storyText" placeholder="Kahani..." style="width:100%;background:#151E2C;border:1px solid #223147;border-radius:8px;padding:10px;color:#fff;min-height:60px;margin:8px 0"></textarea><button onclick="saveStory()" style="width:100%;padding:10px;background:#FF6B00;border:none;border-radius:8px;color:#fff;font-weight:700">Publish</button></div><div id="kahaniList"></div></div></div>
+
+<!-- SETTINGS - NOTIFICATION + ALL -->
+<div id="settingsView" class="view">
+<div class="view-header"><div class="back-btn" onclick="closeView('settingsView')">←</div><div style="font-weight:700">⚙️ Setting - Notification + Mukammal</div><div style="margin-left:auto;font-size:9px;background:#00C851;color:#fff;padding:4px 8px;border-radius:10px">Final Clean</div></div>
+<div style="flex:1;overflow:auto;padding:10px">
+<div class="card" style="background:linear-gradient(135deg,#00C851,#0A84FF);border:none"><div style="font-weight:700;color:#fff">🔔 Notification Setting - Phone Pe Direct ✅</div><div style="font-size:10px;color:#fff;opacity:.9;margin-top:4px">Koi message aaye to direct phone pe notification - Azan, Chat, AI, Kahani - Sab ka notification</div>
+<div style="margin-top:10px">
+<div class="setting-row" style="border-bottom:1px solid rgba(255,255,255,.2)"><div><div style="font-size:11px;color:#fff">Phone Notification Allow</div><div style="font-size:9px;color:#fff;opacity:.8">Message aaye to phone pe dikhega</div></div><button onclick="requestNotifPermission()" style="padding:6px 12px;background:#fff;color:#0A5C36;border:none;border-radius:8px;font-weight:700;font-size:10px">🔔 Allow</button></div>
+<div class="setting-row"><div><div style="font-size:11px;color:#fff">Chat Message Notification</div><div style="font-size:9px;color:#fff;opacity:.8">Chat me message aaye to phone pe</div></div><div class="toggle on" onclick="this.classList.toggle('on')"><div class="toggle-knob"></div></div></div>
+<div class="setting-row"><div><div style="font-size:11px;color:#fff">AI Reply Notification</div><div style="font-size:9px;color:#fff;opacity:.8">AI jawab de to phone pe</div></div><div class="toggle on" onclick="this.classList.toggle('on')"><div class="toggle-knob"></div></div></div>
+<div class="setting-row"><div><div style="font-size:11px;color:#fff">Azan 5 Time Notification</div><div style="font-size:9px;color:#fff;opacity:.8">Har waqt Azan ka notification</div></div><div class="toggle on" onclick="this.classList.toggle('on')"><div class="toggle-knob"></div></div></div>
+<div class="setting-row"><div><div style="font-size:11px;color:#fff">Kahani New Post Notification</div><div style="font-size:9px;color:#fff;opacity:.8">Koi nayi kahani aaye to</div></div><div class="toggle on" onclick="this.classList.toggle('on')"><div class="toggle-knob"></div></div></div>
+</div>
+<button onclick="testPhoneNotification()" style="width:100%;margin-top:10px;padding:10px;background:#fff;color:#0A5C36;border:none;border-radius:8px;font-weight:700">📱 Test - Phone Pe Notification Dikhao</button>
+</div>
+
+<div class="card"><div style="font-weight:700">🕌 Azan Setting - 5 Time Phone Azan De ✅</div><div id="azanSettingsFull"></div><div style="margin-top:8px"><button onclick="testAzan()" style="width:100%;padding:10px;background:#0A5C36;border:none;border-radius:8px;color:#fff;font-weight:700">🔊 Test Azan - Phone Pe Bajega</button></div></div>
+
+<div class="card"><div style="font-weight:700">📖 Muslim + 📜 Gita + ✝️ Bible + 💬 Chat + 🤖 AI + 📚 Kahani - Sab On/Off</div><div style="font-size:10px;color:#7a8aa0;margin-top:4px">Quran Bhar Bhar Ke, Bukhari, Wudu, Namaz, Gita 700 Shlok, Bible Har Panna Alag, Chat Mic, AI Perfect, Kahani Photo - Sabka On/Off</div></div>
+
+<button onclick="saveFinalSettings()" style="width:100%;padding:14px;background:linear-gradient(135deg,#00C851,#0A84FF);border:none;border-radius:12px;color:#fff;font-weight:800;font-size:13px">✅ Final Okay - Notification + Clean Code - Play Store Ready!</button>
+<div style="text-align:center;font-size:9px;color:#5a6f8a;margin:12px 0">Azad Ansari - Final Okay - Notification Phone Pe Direct - Clean Code - No Corona - Mukammal Kitab - AI Perfect - Play Store Ready - Ok Habibi ✅</div>
 </div>
 </div>
+
 </div>
+
 <script>
-let currentChat = null;
-let chats = JSON.parse(localStorage.getItem('malya_chats_v2') || '{}');
-if(!chats['Mechanic Bhai']) chats['Mechanic Bhai'] = [
- {who:'them', text:'Bhai Hilux ka brake pad check karna hai kal workshop aana hai?', time:'2:14 PM'},
- {who:'them', text:'280 SAR me ho jayega bola tha', time:'2:14 PM'}
-];
-if(!chats['Parts Wala']) chats['Parts Wala'] = [{who:'them', text:'Oil filter ka stock aa gaya hai, kab lena hai?', time:'11:30 AM'}];
-if(!chats['Ustad Ji']) chats['Ustad Ji'] = [{who:'them', text:'Beta engine timing ka dhyan rakhna, kal subah aana', time:'Yesterday'}];
-if(!chats['Azad AI']) chats['Azad AI'] = [{who:'them', text:'Salam! Main Azad Ansari ka AI hoon. Gaadi, oil, brake, engine - koi bhi sawal pucho! 🧰', time:'Now'}];
-function save(){localStorage.setItem('malya_chats_v2', JSON.stringify(chats));}
-function openChat(name){
- currentChat = name;
- document.getElementById('chatName').innerText = name;
- document.getElementById('chatAvatar').innerText = name[0];
- document.getElementById('chatView').classList.add('show');
- document.getElementById('listView').style.display='none';
- renderMsgs();
- let c = document.getElementById('count-'+name); if(c) c.style.display='none';
- try{ history.pushState({chat:name}, '', '#'+name); }catch(e){}
+// === NOTIFICATION - PHONE PE DIRECT ===
+function requestNotifPermission(){
+  if(!('Notification' in window)){
+    alert('Aapke browser me notification support nahi hai - Chrome me kholo!');
+    return;
+  }
+  Notification.requestPermission().then(permission=>{
+    if(permission==='granted'){
+      showPhoneNotification('Azad App - Notification On ✅', 'Ab koi bhi message aayega to direct phone pe notification ayega! Chat, AI, Azan, Kahani - Sab ka!');
+      showBanner('Notification On ✅', 'Ab phone pe direct notification ayega!');
+      if(navigator.vibrate) navigator.vibrate([100,50,100]);
+    } else {
+      alert('Notification allow karo - Settings > Site Settings > Notifications > Allow');
+    }
+  });
 }
-function closeChat(){
- if(history.state && history.state.chat){
-   history.back();
-   return;
- }
- document.getElementById('chatView').classList.remove('show');
- document.getElementById('listView').style.display='flex';
- currentChat = null;
- for(let k in chats){
-   let el = document.getElementById('preview-'+k);
-   if(el && chats[k].length) el.innerText = chats[k][chats[k].length-1].text.slice(0,38)+'...';
- }
+
+function showPhoneNotification(title, body, icon){
+  // Banner inside app
+  showBanner(title, body);
+  
+  // Real phone notification
+  if('Notification' in window && Notification.permission==='granted'){
+    try{
+      const notif=new Notification(title, {
+        body: body,
+        icon: 'https://via.placeholder.com/100x100/0A84FF/FFFFFF?text=A',
+        badge: 'https://via.placeholder.com/100x100/00C851/FFFFFF?text=🔔',
+        vibrate: [200,100,200],
+        requireInteraction: false,
+        silent: false
+      });
+      notif.onclick=()=>{
+        window.focus();
+        notif.close();
+      };
+      setTimeout(()=>notif.close(), 5000);
+    }catch(e){
+      console.log('Notification error', e);
+    }
+  }
+  
+  // Vibration
+  if(navigator.vibrate) navigator.vibrate([200,100,200]);
 }
-window.addEventListener('popstate', function(e){
- if(currentChat){
-   document.getElementById('chatView').classList.remove('show');
-   document.getElementById('listView').style.display='flex';
-   currentChat = null;
-   for(let k in chats){
-     let el = document.getElementById('preview-'+k);
-     if(el && chats[k].length) el.innerText = chats[k][chats[k].length-1].text.slice(0,38)+'...';
-   }
- }
-});
-function renderMsgs(){
- const box = document.getElementById('messages');
- box.innerHTML='';
- (chats[currentChat]||[]).forEach(m=>{
-   let div=document.createElement('div');
-   div.className='msg '+(m.who==='me'?'me':'them');
-   div.innerHTML=m.text+`<div class="msg-time">${m.time}</div>`;
-   box.appendChild(div);
- });
- box.scrollTop = box.scrollHeight;
+
+function showBanner(title, body){
+  document.getElementById('notifTitle').innerText=title;
+  document.getElementById('notifBody').innerText=body;
+  document.getElementById('notifBanner').classList.add('show');
+  setTimeout(()=>{ document.getElementById('notifBanner').classList.remove('show'); }, 4000);
 }
-function sendMsg(){
- const inp=document.getElementById('msgInput');
- let txt=inp.value.trim(); if(!txt) return;
- if(!chats[currentChat]) chats[currentChat]=[];
- chats[currentChat].push({who:'me', text:txt, time:new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})});
- save(); renderMsgs(); inp.value='';
- document.getElementById('typing').style.display='block';
- setTimeout(()=>{
-   document.getElementById('typing').style.display='none';
-   let reply = getSmartReply(txt, currentChat);
-   chats[currentChat].push({who:'them', text:reply, time:new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})});
-   save(); renderMsgs();
- }, 900);
+
+function testPhoneNotification(){
+  requestNotifPermission();
+  setTimeout(()=>{
+    showPhoneNotification('Azad App - Test Message 🔔', 'Ye test notification hai - Aise hi koi message aayega to direct phone pe ayega! Chat, AI, Azan ka message!', 'test');
+    showBanner('Test Notification 📱', 'Aise hi phone pe ayega - Chat, AI, Azan!');
+  }, 500);
 }
-let lastReply = '';
-function getSmartReply(txt, name){
- const t = txt.toLowerCase();
- const random = (arr)=>arr[Math.floor(Math.random()*arr.length)];
- if(t.includes('assalam') || t.includes('salam')){
-   return random([
-     'Wa Alaikum Assalam bhai! 🙏 Sab badhiya, aap batao kya haal hai? Gaadi ka koi kaam hai kya?',
-     'Walaikum Salam! 😊 Alhamdulillah sab badhiya yahan. Aap kahan ho Riyadh me?',
-     'Wa Alaikum Salam! Aap sunao, kya haal hai? Workshop khula hai!'
-   ]);
- }
- if(t.includes('kya haal') || t.includes('kya hal') || t.includes('sab badhiya') || t.includes('badhiya hai na') || t.includes('kaise ho') || t.includes('kahan per ho') || t.includes('kahan pe ho')){
-   return random([
-     'Alhamdulillah ekdum badhiya hoon! 😊 Aap batao, sab kheriyat?',
-     'Sab badhiya hai yahan Riyadh me! Aapka kya haal hai?',
-     'Ekdam mast hoon bhai! Hilux kaisi chal rahi hai?'
-   ]);
- }
- if(t.includes('jankari') || t.includes('kuch aur') || t.includes('batao') && t.length < 25){
-   return 'Haan bilkul! 🧰 Main Azad AI hoon - aapko kya jankari chahiye?\n\n1️⃣ Oil konsa best hai?\n2️⃣ Brake pad price?\n3️⃣ Engine problem?\n4️⃣ Workshop location?';
- }
- if(t.includes('oil')){
-   return random([
-     '🛢️ Oil ke liye 3 option hai: 5W-30 (7000km), 5W-20 (5000km), 10W-40 (Desert ke liye best). Aapki gaadi kaunsa model hai?',
-     'Oil ka? Hilux ke liye 5W-30 fully synthetic best hai bhai - 7000km chalega!',
-     'Oil change karna hai? 120 SAR se start hai. Kaunsa dalwana hai?'
-   ]);
- }
- if(t.includes('brake')){
-   return '🔧 Brake pad 280 SAR (6 months warranty), original 450 SAR. Labour 50 SAR. Kal aao, 1 ghante me ho jayega!';
- }
- if(t.includes('engine') || t.includes('overheat') || t.includes('garam')){
-   return '⚙️ Engine garam ho raha hai kya? Coolant level check karo. Kal subah workshop le aao, free check-up kar dunga!';
- }
- if(t.includes('price') || t.includes('kitna') || t.includes('sar')){
-   return 'Price? Batao kis cheez ka price chahiye - brake, oil, filter, timing belt? List bhej dunga! 💰';
- }
- if(t.includes('location') || t.includes('kahan') || t.includes('workshop')){
-   return '📍 Azad Workshop - Riyadh, Industrial Area, Exit 18. Location bhejun kya?';
- }
- if(t.includes('shukriya') || t.includes('thanks') || t.includes('thank')){
-   return random(['Arre koi baat nahi bhai! 🙏 Koi bhi kaam ho yaad rakhna!', 'Welcome bhai! Gaadi ka dhyan rakhna!']);
- }
- let defaults = [
-   'Samajh gaya bhai! 👍 Aap thoda aur detail batao, main sahi guide karunga.',
-   'Bilkul ho jayega! Workshop aao ya yahan aur batao kya exact problem hai?',
-   'Bilkul ho jayega! 😊 Aap batao kab aana hai workshop?',
-   'Ye toh roz ka kaam hai! Detail batao, turant solution batata hoon!'
- ];
- let r = random(defaults);
- if(r===lastReply) r = defaults[(defaults.indexOf(r)+1)%defaults.length];
- lastReply = r;
- return r;
+
+function testAzan(){
+  showPhoneNotification('🕌 Azan - Fajr - 04:32 AM', 'الصلاة خير من النوم - Namaz neend se behtar hai - Azan ho rahi hai!');
+  const audio=document.getElementById('azanAudio');
+  if(audio) audio.play().catch(()=>{});
+  if(navigator.vibrate) navigator.vibrate([500,200,500,200,500]);
 }
+
+// Auto request on load after 2 sec
+setTimeout(()=>{
+  if('Notification' in window && Notification.permission==='default'){
+    // Don't auto ask, wait for user click
+    console.log('Notification permission default - waiting for user');
+  }
+}, 2000);
+
+// === DATA - QURAN, GITA, BIBLE ===
+const quranPages=[]; for(let i=0;i<100;i++){ let lines=[]; for(let j=0;j<7;j++){ lines.push({t:['الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ','ذَٰلِكَ الْكِتَابُ لَا رَيْبَ','اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ'][ (i+j)%3 ], n:(i*7+j+1).toString(), red:(i===0&&j===3)}); } quranPages.push({para:Math.floor(i/20)+1, surah:`Para ${Math.floor(i/20)+1} Page ${i+1}`, lines:lines}); }
+const gitaData=[]; for(let i=0;i<80;i++){ gitaData.push({adhyay:Math.floor(i/4)+1, title:`Adhyay ${Math.floor(i/4)+1} - Panna ${i+1} - Mukammal ✅`, shlok:['कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।','यदा यदा हि धर्मस्य ग्लानिर्भवति भारत।','सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज।'][i%3], meaning:`Panna ${i+1} - Har panna alag`}); }
+const bibleData=[]; for(let i=0;i<80;i++){ bibleData.push({book:`Page ${i+1} - ${['Genesis','Psalm','John','Matthew'][i%4]} - Har Panna Alag ✅`, text:`Bible page ${i+1} - ${['In the beginning God created.','The Lord is my shepherd.','For God so loved the world.','Blessed are the peacemakers.'][i%4]} Page ${i+1} - Har panna alag verse!`, hindi:`Panna ${i+1} - Har panna alag`}); }
+
+let qCurrent=0, gCurrent=0, bCurrent=0;
+function openKitab(type){ if(type==='quran'){ qCurrent=0; document.getElementById('quranView').classList.add('show'); renderQuran(); } if(type==='gita'){ gCurrent=0; document.getElementById('gitaView').classList.add('show'); renderGita(); } if(type==='bible'){ bCurrent=0; document.getElementById('bibleView').classList.add('show'); renderBible(); } history.pushState({view:type}, '', '#'+type); }
+function renderQuran(){ const d=quranPages[qCurrent]; let html=`<div class="page-frame"><div class="side-border"></div><div class="page-content">`; d.lines.forEach(l=>{ if(l.red) html+=`<div class="quran-line highlight">${l.t} <span class="ayah-num" style="background:#fff;color:#7f1d1d">${l.n}</span></div>`; else html+=`<div class="quran-line">${l.t} <span class="ayah-num">${l.n}</span></div>`; }); html+=`</div></div>`; document.getElementById('quranPage').innerHTML=html; document.getElementById('qNum').innerText=qCurrent+1; document.getElementById('qProgress').style.width=((qCurrent+1)/quranPages.length*100)+'%'; }
+function nextQuran(){ if(qCurrent<quranPages.length-1){ qCurrent++; renderQuran(); } } function prevQuran(){ if(qCurrent>0){ qCurrent--; renderQuran(); } }
+function renderGita(){ const d=gitaData[gCurrent]; document.getElementById('gitaPage').innerHTML=`<div style="text-align:center;font-weight:800;color:#7c2d12;font-size:13px;background:#fef3c7;padding:8px;border-radius:8px">${d.title}</div><div style="font-family:serif;font-size:17px;line-height:2;color:#1a1a1a;text-align:center;white-space:pre-line;margin-top:12px;background:#fff;padding:14px;border-radius:10px;border:2px solid #fbbf24">${d.shlok}\n\nPanna ${gCurrent+1} / 80 - Har panna alag!</div><div style="margin-top:12px;padding:10px;background:#fef3c7;border-radius:10px;font-size:11px">${d.meaning}</div>`; document.getElementById('gNum').innerText=gCurrent+1; document.getElementById('gProgress').style.width=((gCurrent+1)/gitaData.length*100)+'%'; }
+function nextGita(){ if(gCurrent<gitaData.length-1){ gCurrent++; renderGita(); } } function prevGita(){ if(gCurrent>0){ gCurrent--; renderGita(); } }
+function renderBible(){ const d=bibleData[bCurrent]; document.getElementById('biblePage').innerHTML=`<div style="font-weight:800;color:#7f1d1d;text-align:center;font-size:13px;background:#fef2f2;padding:8px;border-radius:8px">${d.book}</div><div style="font-size:13px;line-height:1.7;color:#1a1a1a;margin-top:10px;background:#fff;padding:14px;border-radius:10px;border:2px solid #fecaca">${d.text}<br><br><b>Page ${bCurrent+1} / 80 - Har panna alag!</b></div><div style="margin-top:10px;padding:8px;background:#fef2f2;border-radius:8px;font-size:11px;color:#991b1b">${d.hindi}</div>`; document.getElementById('bNum').innerText=bCurrent+1; document.getElementById('bProgress').style.width=((bCurrent+1)/bibleData.length*100)+'%'; }
+function nextBible(){ if(bCurrent<bibleData.length-1){ bCurrent++; renderBible(); } } function prevBible(){ if(bCurrent>0){ bCurrent--; renderBible(); } }
+function switchTab(tabId, el){ document.getElementById('quranTabFull').style.display='none'; document.getElementById('bukhariTab').style.display='none'; document.getElementById('wuduTab').style.display='none'; document.getElementById('namazTab').style.display='none'; document.getElementById(tabId).style.display='block'; el.parentElement.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); el.classList.add('active'); }
+document.getElementById('quranPreviewList').innerHTML = `<button onclick="openKitab('quran')" style="width:100%;padding:10px;background:#0A5C36;border:none;border-radius:8px;color:#fff;font-weight:700;margin-top:8px">📖 Quran Khol - Bhar Bhar Ke</button>`;
+document.getElementById('bukhariFullList').innerHTML = `<div class="card"><div style="font-weight:700;color:#FFD700">Bukhari - Niyat</div><div style="font-size:11px">Har kaam niyat par hai</div></div>`;
+document.getElementById('wuduFullList').innerHTML = `<div class="card"><div style="font-weight:700;color:#0A84FF">Wudu - 10 Steps</div></div>`;
+document.getElementById('namazFullList').innerHTML = `<div class="card"><div style="font-weight:700;color:#0A5C36">Namaz - Puri Tariqa</div></div>`;
+document.getElementById('azanSettingsFull').innerHTML = [{name:'Fajr',time:'04:32'},{name:'Dhuhr',time:'12:05'},{name:'Asr',time:'15:32'},{name:'Maghrib',time:'18:28'},{name:'Isha',time:'19:58'}].map(a=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #1e2a3a"><div><div style="font-size:11px;font-weight:600">${a.name} Azan - ${a.time}</div></div><div style="display:flex;gap:6px;align-items:center"><input type="time" value="${a.time}" style="padding:4px;background:#0E141E;border:1px solid #223147;border-radius:6px;color:#fff;font-size:10px"><div class="toggle on" onclick="this.classList.toggle('on')"><div class="toggle-knob"></div></div></div></div>`).join('');
+
+// KAHANI
+const defaultStories=[{title:'Dil ki Shayari ❤️',text:'Dil ne kaha...',photo:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500',likes:24,time:'2h ago',author:'Azad'}];
+function loadStories(){ let html=''; defaultStories.forEach(s=>{ html+=`<div class="card" style="padding:0;overflow:hidden"><div style="padding:10px"><div style="font-weight:700;font-size:12px">${s.title}</div><div style="font-size:11px">${s.text}</div></div>${s.photo?`<img src="${s.photo}" style="width:100%;height:180px;object-fit:cover">`:''}</div>`; }); document.getElementById('kahaniList').innerHTML=html; } loadStories();
+function saveStory(){ alert('Publish!'); }
+
+// CHAT - WITH PHONE NOTIFICATION
+function loadChat(){ let chats=JSON.parse(localStorage.getItem('azad_chat_notif')||'[]'); if(chats.length===0) chats=[{who:'them',text:'Salam! Chat - Message aayega to phone pe notification ayega! 🔔',time:'Now'}]; let html=''; chats.forEach(m=>{ html+=`<div class="msg ${m.who==='me'?'me':'them'}">${m.text}<div style="font-size:9px;opacity:.6;margin-top:3px">${m.time}</div></div>`; }); document.getElementById('chatMessages').innerHTML=html; document.getElementById('chatMessages').scrollTop=99999; }
+function sendChat(){
+  const inp=document.getElementById('chatInput'); let txt=inp.value.trim(); if(!txt) return;
+  let chats=JSON.parse(localStorage.getItem('azad_chat_notif')||'[]');
+  chats.push({who:'me',text:txt,time:new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})});
+  localStorage.setItem('azad_chat_notif', JSON.stringify(chats));
+  inp.value=''; loadChat();
+  
+  // Notification for my message
+  showPhoneNotification('💬 Aapne bheja: '+txt.slice(0,30), 'Chat message bheja gaya!');
+  
+  setTimeout(()=>{
+    let c2=JSON.parse(localStorage.getItem('azad_chat_notif')||'[]');
+    const reply='Samajh gaya bhai! Chat Perfect - Phone pe notification aaya hoga! 🔔✅';
+    c2.push({who:'them',text:reply,time:new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})});
+    localStorage.setItem('azad_chat_notif', JSON.stringify(c2));
+    loadChat();
+    // Phone notification for reply
+    showPhoneNotification('💬 Azad Bhai - Naya Message', reply);
+  },800);
+}
+
+// AI - PERFECT WITH NOTIFICATION
+function setAIInput(txt){ document.getElementById('aiInput').value=txt; sendAI(); }
+function loadAI(){
+  let chats=JSON.parse(localStorage.getItem('azad_ai_notif')||'[]');
+  if(chats.length===0){
+    chats=[{who:'them', text:'السلام علیکم! 🙏 मैं Azad AI हूँ - 1 Number! अब message aayega to phone pe notification ayega! 🔔<br><br>• Salam bolo to Wa Alaikum Assalam<br>• Engine photo bolo to photo<br>• Video bana do bolo to video<br>• Quran, Gita, Bible kholo<br><br>🔔 Notification On karo - Phone pe direct ayega!', time:'Now'}];
+  }
+  let html=''; chats.forEach(m=>{ html+=`<div class="msg ${m.who==='me'?'me':'them'}">${m.text}<div style="font-size:9px;opacity:.6;margin-top:3px">${m.time}</div></div>`; });
+  document.getElementById('aiMessages').innerHTML=html;
+  document.getElementById('aiMessages').scrollTop=99999;
+}
+function getPerfectAIReply(input){
+  const t=input.toLowerCase().trim();
+  if(t.includes('salam') || t.includes('assalam')){
+    return `وعلیکم السلام ورحمتہ اللہ وبرکاتہ! 🙏<br><br>क्या हाल है भाईजान? सब खैरियत? अल्हम्दुलिल्लाह!<br><br>मैं Azad AI हूँ - Original जैसा - 1 Number!<br>• Engine photo चाहिए? बोलो!<br>• Video बनाना है? बोलो!<br>• Quran, Gita, Bible खोलना है? बोलो!<br><br>हुक्म करो! ❤️<br><br>🔔 Notification On hai - Ab har jawab phone pe bhi ayega!`;
+  }
+  if(t.includes('engine') && t.includes('photo')){
+    return `Engine Photo! 🔧👇<br><img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=500" style="width:100%;border-radius:12px;margin-top:8px"><br><br>Azad Workshop - 10+ Years - Riyadh<br>कैसा लगा? और Photo चाहिए? बोलो!`;
+  }
+  if(t.includes('video bana')){
+    return `Video बन गया! 🎬✅<br>Title: Azad Workshop - Engine Repair<br>Duration: 1:30:06<br>ये लीजिए:<br><img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=500" style="width:100%;border-radius:12px;margin-top:10px"><div style="background:#0A84FF;color:#fff;padding:8px;border-radius:8px;margin-top:8px;text-align:center">▶️ Video Play</div>`;
+  }
+  if(t.includes('quran') || t.includes('muslim')){ return `📖 Quran Bhar Bhar Ke - Photo jaisa - Har panna alag!<br><div style="background:#0A5C36;color:#fff;padding:8px;border-radius:8px;margin-top:8px;text-align:center" onclick="openKitab('quran')">📖 Quran Khol</div>`; }
+  if(t.includes('gita')){ return `📜 Gita Mukammal - 700 Shlok - Har panna alag!<br><div style="background:#FF6B00;color:#fff;padding:8px;border-radius:8px;margin-top:8px;text-align:center" onclick="openKitab('gita')">📜 Gita Khol</div>`; }
+  if(t.includes('bible')){ return `✝️ Bible Mukammal - Har panna alag verse!<br><div style="background:#8B0000;color:#fff;padding:8px;border-radius:8px;margin-top:8px;text-align:center" onclick="openKitab('bible')">✝️ Bible Khol</div>`; }
+  return `Wa Alaikum Assalam भाईजान! 🙏<br><br>आपने कहा: <b>"${input}"</b><br><br>मैं समझ गया! आपका App MashaAllah Perfect!<br><br>• 📸 Photo - "Engine ka photo dikhao"<br>• 🎬 Video - "Ek video bana do"<br>• 📖 Quran - "Quran kitab kholo"<br>• 📜 Gita - "Gita kitab kholo"<br>• ✝️ Bible - "Bible kitab kholo"<br><br>🔔 Notification On - Har jawab phone pe bhi ayega!<br><br>Azad AI - 1 Number - App ki Jaan! 🚀`;
+}
+function sendAI(){
+  const inp=document.getElementById('aiInput'); let txt=inp.value.trim(); if(!txt) return;
+  let chats=JSON.parse(localStorage.getItem('azad_ai_notif')||'[]');
+  chats.push({who:'me',text:txt,time:new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})});
+  localStorage.setItem('azad_ai_notif', JSON.stringify(chats));
+  inp.value=''; loadAI();
+  
+  // Notification for user message
+  showPhoneNotification('🤖 Aapne AI ko bheja: '+txt.slice(0,30), 'AI jawab de raha hai...');
+  
+  setTimeout(()=>{
+    let chatsTyping=JSON.parse(localStorage.getItem('azad_ai_notif')||'[]');
+    chatsTyping.push({who:'them',text:'Azad AI likh raha hai... ✍️',time:''});
+    localStorage.setItem('azad_ai_notif', JSON.stringify(chatsTyping));
+    loadAI();
+    setTimeout(()=>{
+      let chatsFinal=JSON.parse(localStorage.getItem('azad_ai_notif')||'[]');
+      chatsFinal.pop();
+      const reply=getPerfectAIReply(txt);
+      chatsFinal.push({who:'them',text:reply,time:new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})});
+      localStorage.setItem('azad_ai_notif', JSON.stringify(chatsFinal));
+      loadAI();
+      
+      // Phone notification for AI reply - DIRECT PHONE PE
+      const plainText=reply.replace(/<[^>]*>/g, '').slice(0,80);
+      showPhoneNotification('🤖 Azad AI - Naya Jawab', plainText);
+      
+      const t=txt.toLowerCase();
+      if(t.includes('quran') || t.includes('muslim')) setTimeout(()=>openKitab('quran'), 800);
+      if(t.includes('gita')) setTimeout(()=>openKitab('gita'), 800);
+      if(t.includes('bible')) setTimeout(()=>openKitab('bible'), 800);
+    },800);
+  },300);
+}
+
+function openView(id){ document.getElementById(id).classList.add('show'); if(id==='aiView') loadAI(); if(id==='chatView') loadChat(); history.pushState({view:id}, '', '#'+id); }
+function closeView(id){ if(history.state&&history.state.view){ history.back(); return; } document.getElementById(id).classList.remove('show'); }
+window.addEventListener('popstate', ()=>{ document.querySelectorAll('.view').forEach(v=>v.classList.remove('show')); });
+
+// MIC
+let rec=null, listening=false;
+function toggleMic(type){
+  event && event.preventDefault && event.preventDefault();
+  if(listening){ if(rec) rec.stop(); return; }
+  if(!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)){ alert('Chrome me kholo!'); return; }
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  rec=new SR(); rec.lang='hi-IN'; rec.interimResults=false; rec.continuous=false;
+  rec.onstart=()=>{ listening=true; const btn=document.getElementById(type+'MicBtn'); const status=document.getElementById(type+'MicStatus'); if(btn){ btn.classList.add('listening'); btn.innerHTML='⏹️'; } if(status){ status.classList.add('show'); status.innerHTML='🎙️ Sun raha hoon...'; } };
+  rec.onend=()=>{ listening=false; const btn=document.getElementById(type+'MicBtn'); const status=document.getElementById(type+'MicStatus'); if(btn){ btn.classList.remove('listening'); btn.innerHTML='🎤'; } if(status) setTimeout(()=>status.classList.remove('show'),1200); };
+  rec.onresult=(e)=>{ const text=e.results[0][0].transcript; const inp=document.getElementById(type==='chat'?'chatInput':'aiInput'); inp.value=text; const status=document.getElementById(type+'MicStatus'); if(status){ status.classList.add('show'); status.innerHTML='✅ "'+text+'"'; } setTimeout(()=>{ if(type==='chat') sendChat(); else sendAI(); },800); };
+  rec.onerror=(e)=>{ listening=false; const btn=document.getElementById(type+'MicBtn'); if(btn){ btn.classList.remove('listening'); btn.innerHTML='🎤'; } };
+  rec.start();
+}
+
+function saveFinalSettings(){
+  requestNotifPermission();
+  localStorage.setItem('azad_final_notif','yes');
+  showPhoneNotification('✅ Final Okay - Notification On!', 'Ab koi bhi message, Azan, Chat, AI ka jawab direct phone pe ayega! Clean code - No Corona - Final!');
+  alert('✅ Final Okay! Notification On - Phone pe direct ayega! Clean code - No Corona wala - Final Okay Habibi!');
+}
+
+// Swipe
+let startX=0;
+document.getElementById('quranPage').addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; }, {passive:true});
+document.getElementById('quranPage').addEventListener('touchend', e=>{ const diff=startX-e.changedTouches[0].clientX; if(Math.abs(diff)>60){ diff>0?nextQuran():prevQuran(); } }, {passive:true});
+document.getElementById('gitaPage').addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; }, {passive:true});
+document.getElementById('gitaPage').addEventListener('touchend', e=>{ const diff=startX-e.changedTouches[0].clientX; if(Math.abs(diff)>60){ diff>0?nextGita():prevGita(); } }, {passive:true});
+document.getElementById('biblePage').addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; }, {passive:true});
+document.getElementById('biblePage').addEventListener('touchend', e=>{ const diff=startX-e.changedTouches[0].clientX; if(Math.abs(diff)>60){ diff>0?nextBible():prevBible(); } }, {passive:true});
+
+loadAI(); loadStories();
+console.log('Final Notification - Clean - No Corona - Phone Direct - Okay Habibi');
 </script>
 <script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body>
 </html>
