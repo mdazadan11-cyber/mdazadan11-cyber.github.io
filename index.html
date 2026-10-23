@@ -1,171 +1,90 @@
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Azad Assistant - Jeb Wala AI</title>
-<meta name="theme-color" content="#0a0a0a">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a0a;color:#fff;font-family:sans-serif;min-height:100vh;display:flex;flex-direction:column}
-.header{padding:16px;text-align:center;border-bottom:1px solid #222}
-.header h1{font-size:20px;color:#a78bfa}
-.status{font-size:12px;color:#888;margin-top:4px}
-.main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
-.mic-btn{width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#a78bfa);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:50px;box-shadow:0 0 40px rgba(124,58,237,0.5);transition:0.2s}
-.mic-btn.listening{background:#ef4444;animation:pulse 1s infinite}
-@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
-.transcript{margin-top:24px;width:100%;max-width:400px;background:#1a1a1a;border-radius:16px;padding:16px;min-height:120px}
-.bubble{margin:8px 0;padding:10px 14px;border-radius:12px;font-size:14px}
-.user{background:#7c3aed;align-self:flex-end}
-.ai{background:#262626}
-.quick{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px}
-.quick button{background:#1f1f1f;border:1px solid #333;color:#ccc;padding:8px 12px;border-radius:20px;font-size:12px;cursor:pointer}
-.input-area{padding:16px;display:flex;gap:8px;background:#111}
-.input-area input{flex:1;background:#1a1a1a;border:1px solid #333;color:#fff;padding:12px;border-radius:24px}
-.input-area button{background:#7c3aed;border:none;color:#fff;padding:12px 20px;border-radius:24px;cursor:pointer}
-</style>
 </head>
-<body>
-<div class="header">
-<h1>Azad Assistant 🤖</h1>
-<div class="status" id="status">Haan bhai, sun raha hoon - bolo kya kaam hai</div>
+<body style="background:#0a0a0a;color:#fff;font-family:sans-serif;text-align:center;padding:20px">
+
+<h2 style="color:#a78bfa">Azad Assistant 🤖</h2>
+<p id="status">Haan bhai, sun raha hoon - bolo kya kaam hai</p>
+
+<button id="micBtn" style="width:140px;height:140px;border-radius:50%;background:#7c3aed;color:#fff;font-size:40px;border:none;margin:20px">🎤</button>
+<p id="micText" style="color:#888">Mic pe tap kar - Allow aayega</p>
+
+<div id="transcript" style="background:#1a1a1a;padding:16px;border-radius:12px;text-align:left;max-width:400px;margin:20px auto;min-height:100px">
+<div>Main Azad Assistant - bol kya kaam hai?</div>
 </div>
 
-<div class="main">
-<button class="mic-btn" id="micBtn">🎤</button>
-<div style="margin-top:12px;font-size:12px;color:#888" id="micText">Mic pe tap kar - bol</div>
-
-<div class="transcript" id="transcript">
-<div class="bubble ai">Haan bhai, main Azad Assistant - bol kya kaam hai? Call lagana hai, gaana bajana hai, video banana hai, beti ki photo dikhana hai?</div>
-</div>
-
-<div class="quick">
-<button onclick="quickCmd('Bhai time kya hua hai')">Time?</button>
-<button onclick="quickCmd('Bhai beti ki photo dikha')">Beti Photo</button>
-<button onclick="quickCmd('Bhai ek gaana baja')">Gaana Baja</button>
-<button onclick="quickCmd('Mujhe 5:30 baje uthana')">Alarm Laga</button>
-<button onclick="quickCmd('Bhai phone laga')">Call Laga</button>
-</div>
-</div>
-
-<div class="input-area">
-<input id="textInput" placeholder="Yahan likh bhai agar mic na sune...">
-<button onclick="sendText()">Bhej</button>
-</div>
+<input id="textInput" placeholder="Yahan likh agar mic na sune" style="width:70%;padding:12px;border-radius:20px">
+<button onclick="sendText()" style="padding:12px 20px;border-radius:20px;background:#7c3aed;color:#fff;border:none">Bhej</button>
 
 <script>
-const micBtn = document.getElementById('micBtn');
-const status = document.getElementById('status');
-const transcript = document.getElementById('transcript');
-const micText = document.getElementById('micText');
-const textInput = document.getElementById('textInput');
+const micBtn=document.getElementById('micBtn');
+const status=document.getElementById('status');
+const transcript=document.getElementById('transcript');
+let recognition, isListening=false;
 
-let recognition;
-let isListening = false;
-
-// Speech Recognition
-if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  recognition = new SR();
-  recognition.lang = 'hi-IN';
-  recognition.interimResults = true;
-  recognition.continuous = false;
-
-  recognition.onstart = () => {
-    isListening = true;
-    micBtn.classList.add('listening');
-    status.textContent = 'Sun raha hoon bhai... bolo';
-    micText.textContent = 'Sun raha hoon...';
-  };
-  recognition.onend = () => {
-    isListening = false;
-    micBtn.classList.remove('listening');
-    status.textContent = 'Haan bhai, sun liya';
-    micText.textContent = 'Mic pe tap kar - bol';
-  };
-  recognition.onresult = (e) => {
-    const text = e.results[0][0].transcript;
-    if (e.results[0].isFinal) {
-      addBubble(text, 'user');
-      handleCommand(text);
-    }
-  };
-  recognition.onerror = (e) => {
-    status.textContent = 'Mic error: ' + e.error + ' - Type karke bolo bhai';
-    micBtn.classList.remove('listening');
-  };
-} else {
-  status.textContent = 'Mic support nahi - neeche likh ke bolo bhai';
+async function askMicPermission(){
+  try{
+    const s=await navigator.mediaDevices.getUserMedia({audio:true});
+    s.getTracks().forEach(t=>t.stop());
+    status.textContent='Mic Allow ho gaya bhai - ab bol';
+    return true;
+  }catch(e){
+    status.textContent='Bhai Mic Block hai - upar 🔒 pe tap karke Allow kar';
+    alert('Upar 🔒 Lock icon > Site settings > Microphone > Allow kar');
+    return false;
+  }
 }
 
-micBtn.onclick = () => {
-  if (!recognition) { alert('Mic Chrome me https pe hi chalega bhai - GitHub pe daal'); return; }
-  if (isListening) recognition.stop();
+if('webkitSpeechRecognition' in window || 'SpeechRecognition' in window){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  recognition=new SR();
+  recognition.lang='hi-IN';
+  recognition.interimResults=true;
+  recognition.onstart=()=>{isListening=true;micBtn.style.background='red';status.textContent='Sun raha hoon bhai... bolo';}
+  recognition.onend=()=>{isListening=false;micBtn.style.background='#7c3aed';}
+  recognition.onresult=(e)=>{
+    const txt=e.results[0][0].transcript;
+    if(e.results[0].isFinal){addBubble(txt,'user');handleCommand(txt);}
+  }
+}
+
+micBtn.onclick=async()=>{
+  const ok=await askMicPermission();
+  if(!ok) return;
+  if(isListening) recognition.stop();
   else recognition.start();
 };
 
-function addBubble(text, who) {
-  const div = document.createElement('div');
-  div.className = 'bubble ' + who;
-  div.textContent = text;
-  transcript.appendChild(div);
-  transcript.scrollTop = transcript.scrollHeight;
+function addBubble(t,who){
+  const d=document.createElement('div');
+  d.textContent=t;
+  d.style.margin='8px 0';d.style.padding='10px';d.style.borderRadius='12px';
+  d.style.background=who=='user'?'#7c3aed':'#262626';
+  transcript.appendChild(d);
 }
-
-function speak(text) {
-  addBubble(text, 'ai');
-  const utter = new SpeechSynthesisUtterance(text);
-  utter.lang = 'hi-IN';
-  utter.rate = 0.95;
-  utter.pitch = 1.0;
-  const voices = speechSynthesis.getVoices();
-  const hindi = voices.find(v => v.lang.includes('hi')) || voices[0];
-  if (hindi) utter.voice = hindi;
-  speechSynthesis.speak(utter);
+function speak(t){
+  addBubble(t,'ai');
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang='hi-IN';speechSynthesis.speak(u);
 }
-
-function handleCommand(cmd) {
-  const c = cmd.toLowerCase();
-  let reply = '';
-  if (c.includes('time') || c.includes('samay')) {
-    reply = `Haan bhai time ho raha hai ${new Date().toLocaleTimeString('hi-IN')} - Medina time`;
-  } else if (c.includes('phone') || c.includes('call') || c.includes('phone laga')) {
-    reply = `Le bhai call laga raha hoon - contact khol raha hoon - ${cmd.replace('phone laga','')} ko`;
-    setTimeout(()=>{ window.location.href = 'tel:'; }, 1000);
-  } else if (c.includes('gaana') || c.includes('song') || c.includes('music')) {
-    reply = `Le bhai gaana baja raha hoon - YouTube khol raha hoon`;
-    setTimeout(()=>{ window.open('https://www.youtube.com/results?search_query='+encodeURIComponent(cmd),'_blank'); }, 800);
-  } else if (c.includes('video') && c.includes('bana')) {
-    if (c.includes('sexy')) { reply = `Bhai ye wala nahi bana sakta - dusra video bol - Medina ka, gaana ka bana deta hoon`; }
-    else { reply = `Bhai video bana diya - ${cmd} - download kar le`; }
-  } else if (c.includes('beti') && c.includes('photo')) {
-    reply = `Le bhai beti ki photo - gallery se select kar - niche input se photo daal de ek baar, phir hamesha dikhaunga`;
-    const inp = document.createElement('input'); inp.type='file'; inp.accept='image/*'; inp.onchange=(e)=>{ const r=new FileReader(); r.onload=()=>{ const img=document.createElement('img'); img.src=r.result; img.style.width='100%'; img.style.borderRadius='12px'; img.style.marginTop='8px'; transcript.appendChild(img); localStorage.setItem('betiPhoto', r.result); }; r.readAsDataURL(e.target.files[0]); }; inp.click();
-  } else if (c.includes('whatsapp')) {
-    reply = `Bhai WhatsApp bhej raha hoon - ${cmd}`;
-    setTimeout(()=>{ window.open('https://wa.me/?text='+encodeURIComponent(cmd),'_blank'); }, 800);
-  } else if (c.includes('alarm') || c.includes('uthana') || c.includes('jagana')) {
-    const time = c.match(/(\d+):?(\d+)?/)?.[0] || '5:30';
-    localStorage.setItem('alarm_'+Date.now(), time);
-    reply = `Haan bhai alarm laga diya ${time} baje - bolunga Sir uthiye time ho gaya hai`;
-  } else if (c.includes('app bana')) {
-    reply = `Bhai app bana diya - ${cmd} - GitHub pe daal diya`;
-  } else {
-    reply = `Samajh gaya bhai - ${cmd} - kar raha hoon, bolo aur kya chahiye?`;
-  }
-  speak(reply);
+function handleCommand(c){
+  c=c.toLowerCase();
+  if(c.includes('time')) speak('Time ho raha hai '+new Date().toLocaleTimeString());
+  else if(c.includes('photo')) speak('Beti ki photo dikha raha hoon');
+  else if(c.includes('gaana')){speak('Gaana baja raha hoon');window.open('https://www.youtube.com/results?search_query='+c,'_blank');}
+  else if(c.includes('call')){speak('Call laga raha hoon');window.location.href='tel:';}
+  else speak('Samajh gaya bhai '+c+' kar raha hoon');
 }
-
-function quickCmd(t) { addBubble(t,'user'); handleCommand(t); }
-function sendText() { const t=textInput.value.trim(); if(!t) return; addBubble(t,'user'); handleCommand(t); textInput.value=''; }
-
-window.onload = () => {
-  speechSynthesis.getVoices();
-  const saved = localStorage.getItem('betiPhoto');
-  if(saved){ const img=document.createElement('img'); img.src=saved; img.style.width='100%'; img.style.borderRadius='12px'; transcript.appendChild(img); }
-};
+function sendText(){
+  const v=document.getElementById('textInput').value;
+  if(!v) return;addBubble(v,'user');handleCommand(v);
+  document.getElementById('textInput').value='';
+}
 </script>
 </body>
 </html>
