@@ -1,5 +1,5 @@
 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
@@ -7,26 +7,20 @@
 <title>Azad Assistant - Jeb Wala AI</title>
 </head>
 <body style="background:#0a0a0a;color:#fff;font-family:sans-serif;text-align:center;padding:20px">
-
 <h2 style="color:#a78bfa">Azad Assistant 🤖</h2>
 <p id="status">Haan bhai, sun raha hoon - bolo kya kaam hai</p>
-
 <button id="micBtn" style="width:140px;height:140px;border-radius:50%;background:#7c3aed;color:#fff;font-size:40px;border:none;margin:20px">🎤</button>
 <p id="micText" style="color:#888">Mic pe tap kar - Allow aayega</p>
-
 <div id="transcript" style="background:#1a1a1a;padding:16px;border-radius:12px;text-align:left;max-width:400px;margin:20px auto;min-height:100px">
 <div>Main Azad Assistant - bol kya kaam hai?</div>
 </div>
-
 <input id="textInput" placeholder="Yahan likh agar mic na sune" style="width:70%;padding:12px;border-radius:20px">
 <button onclick="sendText()" style="padding:12px 20px;border-radius:20px;background:#7c3aed;color:#fff;border:none">Bhej</button>
-
 <script>
 const micBtn=document.getElementById('micBtn');
 const status=document.getElementById('status');
 const transcript=document.getElementById('transcript');
-let recognition, isListening=false;
-
+let recognition,isListening=false;
 async function askMicPermission(){
   try{
     const s=await navigator.mediaDevices.getUserMedia({audio:true});
@@ -39,7 +33,6 @@ async function askMicPermission(){
     return false;
   }
 }
-
 if('webkitSpeechRecognition' in window || 'SpeechRecognition' in window){
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   recognition=new SR();
@@ -52,14 +45,12 @@ if('webkitSpeechRecognition' in window || 'SpeechRecognition' in window){
     if(e.results[0].isFinal){addBubble(txt,'user');handleCommand(txt);}
   }
 }
-
 micBtn.onclick=async()=>{
   const ok=await askMicPermission();
   if(!ok) return;
   if(isListening) recognition.stop();
   else recognition.start();
 };
-
 function addBubble(t,who){
   const d=document.createElement('div');
   d.textContent=t;
