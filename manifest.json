@@ -1,0 +1,22 @@
+{
+  "name": "MAIN - 4K VR Media & Books Super App",
+  "short_name": "MAIN",
+  "description": "Mdazad11-cyber - 4K VR Media & Books Super App - MAIN Inbox PWA",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#0d1117",
+  "icons": [
+    {
+      "src": "https://avatars.githubusercontent.com/u/0",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://avatars.githubusercontent.com/u/0",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
