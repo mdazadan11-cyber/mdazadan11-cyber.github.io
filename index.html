@@ -37,5 +37,24 @@ Tu jo hanse toh lagta hai, khuda bhi meherban.`,type:"shayari",author:"Aman Verm
 </script>
   <script>(function(){function m(a){var h=a.getAttribute("href");if(!h)return;try{var u=new URL(h,document.baseURI);if(((u.protocol==="http:"||u.protocol==="https:")&&u.host!==location.host)||u.protocol==="mailto:"||u.protocol==="tel:"||u.protocol==="sms:"){a.target="_blank";a.rel="noopener noreferrer";}}catch(e){}}function s(){document.querySelectorAll("a[href]").forEach(m);}if(document.readyState!=="loading"){s();}else{document.addEventListener("DOMContentLoaded",s);}document.addEventListener("click",function(e){var a=e.target&&e.target.closest&&e.target.closest("a[href]");if(a){m(a);}},true);})();</script>
   <script type="application/json" data-clippy-inline-media-manifest="1">{"version":1,"slots":[]}</script>
-</body>
+</body><!-- Home Pe Upload Jugad - Yahan se Copy karo -->
+<input type="file" id="homeVideoInput" accept="video/*" style="display:none" />
+<button id="homeUploadBtn" style="position:fixed; bottom:80px; right:20px; width:60px; height:60px; background:#FFD700; color:#000; border-radius:50%; font-size:30px; border:none; z-index:99; box-shadow:0 4px 12px rgba(0,0,0,0.5)">+</button>
+<script>
+document.getElementById('homeUploadBtn').onclick = () => document.getElementById('homeVideoInput').click();
+document.getElementById('homeVideoInput').onchange = function(e){
+  let file = e.target.files[0];
+  if(file){
+    let url = URL.createObjectURL(file);
+    let title = prompt("Video ka naam:");
+    let container = document.getElementById('root');
+    let box = document.createElement('div');
+    box.style = "padding:10px; margin:10px; background:#151821; border-radius:10px";
+    box.innerHTML = `<video src="${url}" controls style="width:100%; border-radius:10px"></video><p style="color:white; margin-top:8px">${title||'Mera Video'}</p>`;
+    container.prepend(box);
+    alert("Ho gaya! Home pe aa gaya!");
+  }
+}
+</script>
+<!-- Yahan tak Copy karo -->
 </html>
