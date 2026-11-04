@@ -1,0 +1,147 @@
+import os
+import requests
+import json
+import speech_recognition as sr
+import google.generativeai as genai
+from googlesearch import search
+from github import Github
+
+# =========================================================================
+# ⚙️ अपनी असली डिटेल्स भरें:
+# =========================================================================
+GEMINI_API_KEY = "YOUR_FREE_GEMINI_API_KEY"
+GITHUB_TOKEN = "YOUR_GITHUB_PERSONAL_ACCESS_TOKEN"
+GITHUB_REPO_NAME = "mdazadan11-cyber/mdazadan11-cyber.github.io"  # FIXED
+# =========================================================================
+
+genai.configure(api_key=GEMINI_API_KEY)
+model = genai.GenerativeModel('gemini-1.5-flash')
+
+TASKER_URL = "http://localhost:1821/JarvisAction"
+
+# गाली फ़िल्टर - दोहराना बंद करने के लिए
+BAD_WORDS = ["lund", "gand", "chut", "choot", "madarchod", "behenchod", "bhosdi", "loda", "randi", "nanga", "sexy", "muh me"]
+
+def is_abusive(text):
+    t = text.lower()
+    for w in BAD_WORDS:
+        if w in t:
+            return True
+    return False
+
+def speak(text):
+    print(f"Jarvis: {text}")
+    try:
+        requests.post(TASKER_URL, data={'action': 'speak', 'text': text}, timeout=3)
+    except:
+        pass
+
+def listen_command():
+    r = sr.Recognizer()
+    r.energy_threshold = 4000
+    r.pause_threshold = 1
+    with sr.Microphone() as source:
+        print("सुन रहा हूँ सर... (Bhai Sun)")
+        try:
+            r.adjust_for_ambient_noise(source, duration=0.5)
+            audio = r.listen(source, timeout=5, phrase_time_limit=6)
+        except:
+            return "none"
+    try:
+        query = r.recognize_google(audio, language='hi-IN')
+        print(f"Sir: {query}\n")
+        if is_abusive(query):
+            print("Blocked abusive")
+            return "abusive_blocked"
+        return query.lower()
+    except:
+        return "none"
+
+def send_to_phone(action_type, target):
+    try:
+        requests.post(TASKER_URL, json={'action': action_type, 'target': target}, timeout=3)
+    except:
+        print("टास्कर कनेक्ट नहीं है।")
+
+def google_search_tool(query):
+    speak(f"गूगल पर {query} सर्च कर रहा हूँ सर।")
+    try:
+        results = []
+        for url in search(query, num_results=3):
+            results.append(url)
+        return f"गूगल पर मिले: {', '.join(results)}"
+    except:
+        return "गूगल सर्च में दिक्कत आई।"
+
+def deploy_to_github_tool(filename, file_content):
+    speak(f"सर, {filename} को गिटहब पर अपलोड कर रहा हूँ।")
+    try:
+        g = Github(GITHUB_TOKEN)
+        repo = g.get_repo(GITHUB_REPO_NAME)  # FIXED
+        try:
+            contents = repo.get_contents(filename)
+            repo.update_file(contents.path, f"Jarvis Auto Update {filename}", file_content, contents.sha)
+            return f"गिटहब पर {filename} अपडेट कर दिया। https://mdazadan11-cyber.github.io पर लाइव होगा।"
+        except:
+            repo.create_file(filename, f"Jarvis Auto Deploy {filename}", file_content)
+            return f"गिटहब पर नई फाइल {filename} बना दी।"
+    except Exception as e:
+        return f"गिटहब त्रुटि: {str(e)}"
+
+def process_jarvis_logic(user_command):
+    if user_command == "abusive_blocked":
+        speak("भाई काम की बात बोलो, गलत शब्द मत बोलो।")
+        return
+
+    system_prompt = (
+        f"You are Jarvis, advanced AI. Command: '{user_command}'. "
+        "Respond ONLY JSON. Options: "
+        "1. google: {{\"tool\": \"google\", \"query\": \"terms\"}} "
+        "2. deploy_code: {{\"tool\": \"deploy_code\", \"filename\": \"index.html\", \"content\": \"full html\"}} "
+        "3. phone: {{\"tool\": \"phone\", \"action\": \"open_app\", \"target\": \"facebook/youtube/google\"}} "
+        "4. chat: {{\"tool\": \"chat\", \"reply\": \"answer\"}}"
+    )
+    try:
+        ai_response = model.generate_content(system_prompt)
+        clean_text = ai_response.text.strip().replace("```json", "").replace("```", "")
+        decision = json.loads(clean_text)
+        tool = decision.get('tool')
+
+        if tool == "google":
+            result = google_search_tool(decision.get('query'))
+            speak(result)
+        elif tool == "deploy_code":
+            result = deploy_to_github_tool(decision.get('filename'), decision.get('content'))
+            speak(result)
+        elif tool == "phone":
+            target = decision.get('target','').lower()
+            speak(f"{target} खोल रहा हूँ सर।")
+            if "facebook" in target:
+                send_to_phone("open_app", "facebook")
+            elif "youtube" in target:
+                send_to_phone("open_app", "youtube")
+            else:
+                send_to_phone(decision.get('action'), target)
+        else:
+            # chat - but no question loop
+            normal_reply = model.generate_content(user_command)
+            speak(normal_reply.text[:200])  # short reply, no loop question
+    except Exception as e:
+        print(f"Error: {e}")
+        try:
+            normal_reply = model.generate_content(user_command)
+            speak(normal_reply.text[:200])
+        except:
+            speak("कनेक्शन में दिक्कत है सर।")
+
+if __name__ == "__main__":
+    speak("सिस्टम तैयार है सर। आदेश दें।")
+    while True:
+        command = listen_command()
+        if command == "none":
+            continue
+        if "offline" in command or "बंद हो जाओ" in command:
+            speak("ऑफलाइन हो रहा हूँ सर।")
+            break
+        process_jarvis_logic(command)
+        # loop nahi - har command ke baad rukega, fir se sunega
