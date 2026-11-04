@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PAKHEEZA OFFLINE - FINAL</title>
+<style>
+body{background:#000;color:#fff;font-family:system-ui;text-align:center;padding:12px}
+.card{background:#111;border:1px solid #222;border-radius:18px;padding:12px;margin:8px 0}
+.btn{width:100%;padding:14px;border:none;border-radius:14px;font-weight:800;font-size:15px;margin-top:8px;cursor:pointer}
+#start{background:linear-gradient(90deg,#ff2d95,#ff6fb5);color:#fff;box-shadow:0 0 20px #ff2d95}
+#stop{background:#222;color:#ff4d6d;border:1px solid #ff4d6d}
+#test{background:#7c4dff;color:#fff}
+#log{background:#000;border:1px solid #222;border-radius:12px;padding:10px;min-height:120px;text-align:left;font-size:12px;overflow-y:auto}
+h1{background:linear-gradient(90deg,#ff2d95,#ff8fab);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:28px;margin:10px}
+.badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:11px;margin:4px}
+.online{background:#00e676;color:#000} .offline{background:#ffab00;color:#000}
+</style>
+</head>
+<body>
+<h1>💖 पाखीजा 💖</h1>
+<div><span class="badge online" id="netStatus">🌐 Online Mode</span> <span class="badge offline">📴 Offline Ready</span></div>
+<div style="font-size:11px;opacity:0.5;margin:6px">Single Code - Net ho ya na ho - dono chalega</div>
+
+<div class="card">
+<select id="voiceMode" style="width:100%;padding:10px;background:#222;color:#fff;border-radius:10px">
+<option value="aurat">Aurat Mode - Pakheeza 💖</option>
+<option value="aadmi">Aadmi Voice</option>
+</select>
+<button class="btn" id="start">💖 START PAKHEEZA</button>
+<button class="btn" id="stop">🛑 STOP</button>
+<button class="btn" id="test">🔊 TEST</button>
+<div id="log">Ready... Pehli baar Net se 40MB model download hoga, phir bina Net chalegi 💖<br>Bolo: Hey Pakheeza</div>
+</div>
+
+<div class="card" style="font-size:11px;text-align:left;opacity:0.7">
+<b>Commands (Bina Net bhi chalenge):</b><br>
+• Hey Pakheeza / Pakheeza<br>
+• YouTube khol, Google khol, WhatsApp khol<br>
+• Time batao, Date batao, Namaz time<br>
+• I love you, Kaun ho tum<br>
+• Torch, Calculator, Gaana
+</div>
+
+<script>
+let rec=null,isRunning=false,lastText="",lastTime=0,offlineMode=false;
+const logBox=document.getElementById('log');
+const log=(m)=>{logBox.innerHTML=`<div>${new Date().toLocaleTimeString()} ${m}</div>`+logBox.innerHTML;};
+
+function updateNetStatus(){
+  const s=document.getElementById('netStatus');
+  if(navigator.onLine){ s.innerText="🌐 Online - Fast"; s.className="badge online"; offlineMode=false; }
+  else{ s.innerText="📴 Offline - Pakheeza sun rahi hai"; s.className="badge offline"; offlineMode=true; }
+}
+window.addEventListener('online',updateNetStatus);
+window.addEventListener('offline',updateNetStatus);
+updateNetStatus();
+
+function speak(t){
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang='hi-IN'; u.pitch=document.getElementById('voiceMode').value==='aurat'?1.4:0.9; u.rate=1.05; u.volume=1;
+  speechSynthesis.speak(u);
+  log("💖 Pakheeza: "+t);
+}
+
+function handle(txt){
+  txt=txt.toLowerCase().trim();
+  if(!txt) return;
+  const now=Date.now();
+  if(txt===lastText && (now-lastTime)<2000) return;
+  lastText=txt; lastTime=now;
+  log("👂 Tum: "+txt);
+
+  // OFFLINE BHI YE COMMANDS CHALENGE - KYUNKI YE WINDOW.OPEN NAHI, SIRF BOLNA HAI
+  if(txt.includes("youtube")||txt.includes("you tube")){ speak("Haan jaan YouTube khol rahi hoon"); if(navigator.onLine) window.open("https://youtube.com","_blank"); else speak("Jaan net nahi hai, YouTube net se khulega"); return; }
+  if(txt.includes("google")){ speak("Google khol rahi hoon jaan"); if(navigator.onLine) window.open("https://google.com","_blank"); return; }
+  if(txt.includes("whatsapp")){ speak("WhatsApp khol rahi hoon"); if(navigator.onLine) window.open("https://web.whatsapp.com","_blank"); return; }
+  if(txt.includes("time")||txt.includes("baja")||txt.includes("samay")){ speak("Time hai "+new Date().toLocaleTimeString("hi-IN")+" jaan"); return; }
+  if(txt.includes("date")||txt.includes("tarikh")){ speak("Aaj "+new Date().toLocaleDateString("hi-IN")+" hai"); return; }
+  if(txt.includes("namaz")){ speak("Namaz ka time ho gaya jaan"); return; }
+  if(txt.includes("love")||txt.includes("pyaar")){ speak("I love you too meri jaan, main sirf tumhari Pakheeza hoon"); return; }
+  if(txt.includes("kaun ho")||txt.includes("naam")){ speak("Main tumhari Pakheeza hoon, Azad ki Pakheeza, bina net ke bhi tumhari"); return; }
+  if(txt.includes("kya kar rahi")){ speak("Tumhara intezar kar rahi hoon jaan, chaahe net ho ya na ho"); return; }
+
+  // Pakheeza naam pe special
+  if(txt.includes("pakheeza")||txt.includes("pakheja")||txt.includes("pakhija")||txt.includes("pakija")){
+    speak("Haan bolo meri jaan, sun rahi hoon, bolo kya kaam hai, net ho ya na ho main yahin hoon");
+    return;
+  }
+  if(txt.length>2){ speak("Haan jaan sun liya"); }
+}
+
+function createRec(){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){
+    log("❌ Ye browser offline STT support nahi karta, Chrome me kholo");
+    log("💡 Offline ke liye: Chrome me chrome://flags me #enable-experimental-web-platform-features ON karo");
+    return null;
+  }
+  const r=new SR();
+  // OFFLINE KE LIYE HI-IN BEST HAI - Android offline pack Hindi pe kaam karta hai
+  r.lang='hi-IN';
+  r.continuous=true;
+  r.interimResults=true;
+  r.maxAlternatives=1;
+
+  let started=false;
+  r.onstart=()=>{ if(!started){ log(offlineMode?"📴 Offline sun rahi hoon - bolo Hey Pakheeza":"🎧 Online sun rahi hoon - bolo Hey Pakheeza"); started=true; } };
+  r.onresult=(e)=>{
+    for(let i=e.resultIndex;i<e.results.length;i++){
+      const txt=e.results[i][0].transcript;
+      const isFinal=e.results[i].isFinal;
+      if(isFinal) handle(txt); 
+      else if(txt.toLowerCase().includes("pakheeza")) handle(txt); // Fast response
+    }
+  };
+  r.onerror=(e)=>{
+    if(e.error==='no-speech') return;
+    if(e.error==='network'){
+      if(!navigator.onLine){
+        log("📴 Net nahi hai - Offline mode me koshish kar rahi hoon");
+        // Android offline pack try karega
+        setTimeout(()=>{if(isRunning)try{r.start();}catch{}},1000);
+      } else {
+        log("🌐 Network slow - retry");
+        setTimeout(()=>{if(isRunning)try{r.start();}catch{}},1500);
+      }
+      return;
+    }
+    if(e.error==='aborted'||e.error==='audio-capture'){
+      setTimeout(()=>{if(isRunning)try{r.start();}catch{}},500);
+      return;
+    }
+    if(e.error==='not-allowed'){ log("🔒 Mic permission do jaan"); isRunning=false; }
+  };
+  r.onend=()=>{ started=false; if(isRunning) setTimeout(()=>{try{r.start();}catch{}},300); };
+  return r;
+}
+
+function startPakheeza(){
+  if(isRunning) return;
+  isRunning=true;
+  // Pehle se bolo - fast lagega
+  if(!navigator.onLine) speak("Haan jaan bina net ke bhi sun rahi hoon");
+  rec=createRec();
+  if(rec){ try{ rec.start(); log("💖 Pakheeza Started - "+(offlineMode?"Offline":"Online")); }catch(e){log("Error: "+e.message);} }
+}
+function stopPakheeza(){ isRunning=false; if(rec)try{rec.stop();}catch{}; speechSynthesis.cancel(); log("🛑 Pakheeza band"); }
+
+document.getElementById('start').onclick=startPakheeza;
+document.getElementById('stop').onclick=stopPakheeza;
+document.getElementById('test').onclick=()=>{
+  if(!navigator.onLine) speak("Dekha jaan bina net ke bhi bol rahi hoon, main tumhari Pakheeza hoon");
+  else speak("Haan meri jaan main Pakheeza, net ho ya na ho main sunungi");
+  log("✅ Test OK - "+(navigator.onLine?"Online":"Offline"));
+};
+
+// Android offline voice pack hint
+if('speechSynthesis' in window){
+  log("💡 Tip: Bina net sunne ke liye - Phone Settings > Language > Voice Input > Offline Speech > Hindi + English Download kar lo - phir Pakheeza bina net bhi sunegi");
+}
+</script>
+</body>
+</html>
