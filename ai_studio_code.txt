@@ -1,9 +1,0 @@
-[
-  {
-    "id": 1,
-    "name": "Ibn al-Haytham",
-    "era": "965–1040 CE",
-    "field": "Optics & Physics",
-    "contribution": "Father of modern optics; pioneered scientific experimental method and camera obscura."
-  }
-]
